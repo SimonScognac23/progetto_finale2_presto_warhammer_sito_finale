@@ -1,19 +1,37 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Middleware\HasMiddleware;
-use App\Http\Middleware\Middleware;
-use Illuminate\Routing\Controller;
-use Illuminate\Foundation\Http\FormRequest;
 
+use Illuminate\Routing\Controller;
+use App\Models\Article;
 use Illuminate\Http\Request;
 
-class ArticleController extends Controller implements HasMiddleware
+class ArticleController extends Controller
 {
-    public static function middleware(): array
+    public function __construct()
     {
-        return [
-            new Middleware('auth', only: ['create']),
-        ];
+        $this->middleware('auth')->only(['create']);
     }
+
+    public function create()
+    {
+        return view('article.create');
+    }
+
+    public function show(Article $article)
+    {
+        return view('article.show', compact('article'));
+    }
+
+        public function index()
+{
+    $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->paginate(10);
+    return view('article.index', compact('articles'));
+}
+
+
+public function byCategory(Category $category)
+{
+   return view('article.byCategory', ['articles' => $category->articles, 'category' => $category]);
+}
 }

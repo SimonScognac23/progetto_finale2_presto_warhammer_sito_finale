@@ -3,6 +3,7 @@
 use App\Models\Article;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class CreateArticleForm extends Component
 {
