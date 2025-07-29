@@ -2,22 +2,38 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
+    public $categories = [
+        'Space Marines',
+        'Chaos Space Marines',
+        'Imperial Guard',
+        'Adeptus Mechanicus',
+        'Sisters of Battle',
+        'Custodes',
+        'Grey Knights',
+        'Tyranids',
+        'Orks',
+        'Eldar',
+        'Dark Eldar',
+        'Tau Empire',
+        'Necrons',
+        'Chaos Daemons',
+        'Death Guard',
+        'Thousand Sons',
+        'World Eaters',
+        "Emperor's Children"
+    ];
+
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        foreach ($this->categories as $category) {
+            Category::create([
+                'name' => $category
+            ]);
+        }
     }
 }
