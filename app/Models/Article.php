@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\User;
 use App\Models\Category;
 use Laravel\Scout\Searchable;
+use App\Models\Image;
 
 
 
@@ -54,6 +55,11 @@ class Article extends Model
             'description' => $this->description,
             'category' => $this->category
         ];
+    }
+
+        public function images(): HasMany
+    {
+        return $this->hasMany(Image::class);
     }
 
 }
