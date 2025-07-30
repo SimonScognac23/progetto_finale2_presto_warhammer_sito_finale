@@ -14,23 +14,19 @@
             </a>
             
             <!-- Dropdown Categorie -->
-             <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Categorie
-                        </a>
-                        <ul class="dropdown-menu">
-                            @foreach ($categories as $category)
-                                <li><a class="dropdown-item"
-                                        href="{{ route('byCategory', ['category' => $category]) }}">{{ $category->name }}</a>
-                                </li>
-                                @if (!$loop->last)
-                                    <hr class="dropdown-divider">
-                                @endif
-                            @endforeach
-                        </ul>
-                    </li>
-
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Categorie
+                </a>
+                <ul class="dropdown-menu">
+                    @foreach ($categories as $category)
+                        <li><a class="dropdown-item" href="{{ route('byCategory', ['category' => $category]) }}">{{ $category->name }}</a></li>
+                        @if (!$loop->last)
+                            <hr class="dropdown-divider">
+                        @endif
+                    @endforeach
+                </ul>
+            </div>
             
             @auth
                 <span style="color: #333;">Ciao, {{ Auth::user()->name }}!</span>
@@ -45,6 +41,17 @@
                         Logout
                     </button>
                 </form>
+                
+                 @if (Auth::user()->is_revisor)
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline-success btn-sm position-relative w-sm-25"
+                                href="{{ route('revisor.index') }}">Zona revisore
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ \App\Models\Article::toBeRevisedCount() }}
+                                </span>
+                            </a>
+                        </li>
+                    @endif
             @else
                 <a href="{{ route('login') }}" style="text-decoration: none; color: #007bff;">
                     Accedi

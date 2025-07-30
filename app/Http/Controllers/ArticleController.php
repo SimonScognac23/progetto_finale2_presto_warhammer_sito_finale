@@ -32,6 +32,7 @@ class ArticleController extends Controller
 
 public function byCategory(Category $category)
 {
-   return view('article.byCategory', ['articles' => $category->articles, 'category' => $category]);
+    $articles = $category->articles->where('is_accepted', true);
+    return view('article.byCategory', compact('articles', 'category'));
 }
 }

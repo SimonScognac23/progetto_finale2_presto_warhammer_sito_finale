@@ -12,6 +12,11 @@
                     <a href="#" class="text-white me-3 text-decoration-none">Termini di Servizio</a>
                     <a href="#" class="text-white text-decoration-none">Contatti</a>
                 </div>
+                 <div class="col-md-5 offset-md-1 mb-3 text-center">
+                        <h5>Vuoi diventare revisore?</h5>
+                        <p>Cliccando il bottone sottostante farai richiesta al nostro admin</p>
+                        <a href="{{ route('become.revisor') }}" class="btn btn-success">diventa revisore</a>
+                    </div>
             </div>
         </div>
     </div>

@@ -1,5 +1,8 @@
 <?php
 
+
+
+namespace App\Livewire;
 use App\Models\Article;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
