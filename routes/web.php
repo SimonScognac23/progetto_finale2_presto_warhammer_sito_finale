@@ -22,7 +22,7 @@ Route::get('/show/article/{article}', [ArticleController::class, 'show'])->name(
 Route::get('/category/{category}', [ArticleController::class, 'byCategory'])->name('byCategory');
 
 
-Route::get('/revisor/index', [RevisorController::class, 'index'])->middleware('isRevisor')->name('revisor.index');
+
 
 
 
@@ -39,3 +39,5 @@ Route::get('/make/revisor/{user}', [RevisorController::class, 'makeRevisor'])->n
 
 
 Route::get('/search/article', [PublicController::class, 'searchArticles'])->name('article.search');
+
+Route::post('/lingua/{lang}', [PublicController::class, 'setLanguage'])->name('setLocale');

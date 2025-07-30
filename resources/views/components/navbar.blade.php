@@ -8,6 +8,25 @@
             <a href="{{ route('homepage') }}" style="text-decoration: none; color: #333;">
                 Home
             </a>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Lingua
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <x-_locale lang="it" />
+                        </li>
+                        <li>
+                            <x-_locale lang="en" />
+                        </li>
+                        <li>
+                            <x-_locale lang="es" />
+                        </li>
+                    </ul>
+                </li>
+                
             
             <a href="{{ route('article.index') }}" style="text-decoration: none; color: #333;">
                 Tutti gli articoli
