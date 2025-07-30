@@ -12,6 +12,17 @@
             <a href="{{ route('article.index') }}" style="text-decoration: none; color: #333;">
                 Tutti gli articoli
             </a>
+
+               <!-- Form di ricerca -->
+                <li class="nav-item">
+                    <form class="d-flex ms-auto" role="search" action="{{ route('article.search') }}" method="GET">
+                        <div class="input-group">
+                            <input type="search" name="query" class="form-control" placeholder="Search" aria-label="search">
+                            <button type="submit" class="input-group-text btn btn-outline-success"
+                                    id="basic-addon2">Search</button>
+                        </div>
+                    </form>
+                </li>
             
             <!-- Dropdown Categorie -->
             <div class="nav-item dropdown">
@@ -31,7 +42,7 @@
             @auth
                 <span style="color: #333;">Ciao, {{ Auth::user()->name }}!</span>
                 
-                <a href="{{ route('article.create') }}" style="text-decoration: none; color: #007bff;">
+                <a href="{{ route('create.article') }}" style="text-decoration: none; color: #007bff;">
                     Crea Articolo
                 </a>
                 
