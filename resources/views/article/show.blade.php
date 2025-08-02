@@ -11,14 +11,16 @@
         <div class="col-12 col-md-6 mb-3">
             @if ($article->images->count() > 0)
                 <div id="carouselExample" class="carousel slide">
-                    <div class="carousel-inner">
-                        @foreach ($article->images as $key => $image)
-                            <div class="carousel-item @if ($loop->first) active @endif">
-                                <img src="{{ Storage::url($image->path) }}" class="d-block w-100 rounded shadow"
-                                     alt="Immagine {{ $key + 1 }} dell'articolo {{ $article->title }}">
-                            </div>
-                        @endforeach
-                    </div>
+                 
+<div class="carousel-inner">
+    @foreach ($article->images as $key => $image)
+        <div class="carousel-item @if ($loop->first) active @endif">
+            <img src="{{ $image->getUrl(300, 300) }}" class="d-block w-100 rounded shadow"
+                 alt="Immagine {{ $key + 1 }} dell'articolo {{ $article->title }}">
+        </div>
+    @endforeach
+</div>
+
                     @if ($article->images->count() > 1)
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
                                 data-bs-slide="prev">
