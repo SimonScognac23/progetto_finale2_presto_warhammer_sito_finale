@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\File;
+use App\Jobs\GoogleVisionSafeSearch;
+use App\Jobs\GoogleVisionLabelImage;
 
 use App\Jobs\ResizeImage;
 
@@ -47,13 +49,21 @@ public function store()
         'category_id' => $this->category,
         'user_id' => Auth::id()
     ]);
-    if (count($this->images) > 0) {
-        foreach ($this->images as $image) {
-            $newFileName = "articles/{$this->article->id}";
-            $newImage = $this->article->images()->create(['path' => $image->store($newFileName, 'public')]);
-            dispatch(new ResizeImage($newImage->path, 300, 300));
-        }
-    }
+  
+
+if (count($this->images) > 0) {
+   foreach ($this->images as $image) {
+       $newFileName = "articles/{$this->article->id}";
+       $newImage = $this->article->images()->create(['path' => $image->store($newFileName, 'public')]);
+       dispatch(new ResizeImage($newImage->path, 300, 300));
+       dispatch(new GoogleVisionSafeSearch($newImage->id));
+       dispatch(new GoogleVisionLabelImage($newImage->id));
+   }
+   File::deleteDirectory(storage_path('/app/livewire-tmp'));
+}
+
+
+    
     File::deleteDirectory(storage_path('/app/livewire-tmp'));
     
     session()->flash('success', 'Articolo creato correttamente');
