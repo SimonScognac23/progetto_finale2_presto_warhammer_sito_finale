@@ -1,93 +1,82 @@
-<nav style="background-color: #f8f9fa; padding: 10px; border-bottom: 1px solid #ddd;">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-        <a href="{{ route('homepage') }}" style="text-decoration: none; font-weight: bold; color: #333;">
+<nav class="custom-navbar">
+    <div class="navbar-container">
+        <a href="{{ route('homepage') }}" class="custom-brand">
             Presto.it
         </a>
         
-        <div style="display: flex; align-items: center; gap: 15px;">
-            <a href="{{ route('homepage') }}" style="text-decoration: none; color: #333;">
+        <div class="navbar-menu">
+            <a href="{{ route('homepage') }}" class="nav-link-custom">
                 Home
             </a>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Lingua
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <x-_locale lang="it" />
-                        </li>
-                        <li>
-                            <x-_locale lang="en" />
-                        </li>
-                        <li>
-                            <x-_locale lang="es" />
-                        </li>
-                    </ul>
-                </li>
-                
             
-            <a href="{{ route('article.index') }}" style="text-decoration: none; color: #333;">
+            <a href="{{ route('article.index') }}" class="nav-link-custom">
                 Tutti gli articoli
             </a>
-
-               <!-- Form di ricerca -->
-                <li class="nav-item">
-                    <form class="d-flex ms-auto" role="search" action="{{ route('article.search') }}" method="GET">
-                        <div class="input-group">
-                            <input type="search" name="query" class="form-control" placeholder="Search" aria-label="search">
-                            <button type="submit" class="input-group-text btn btn-outline-success"
-                                    id="basic-addon2">Search</button>
-                        </div>
-                    </form>
-                </li>
+            
+            <!-- Form di ricerca -->
+            <div class="nav-item">
+                <form class="search-form" role="search" action="{{ route('article.search') }}" method="GET">
+                    <div class="input-group">
+                        <input type="search" name="query" class="form-control search-input" placeholder="Cerca..." aria-label="search">
+                        <button type="submit" class="btn search-btn" id="basic-addon2">
+                            <i class="fas fa-search"></i> Cerca
+                        </button>
+                    </div>
+                </form>
+            </div>
             
             <!-- Dropdown Categorie -->
-            <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="nav-item dropdown custom-dropdown">
+                <a class="dropdown-toggle-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Categorie
                 </a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-custom">
                     @foreach ($categories as $category)
-                        <li><a class="dropdown-item" href="{{ route('byCategory', ['category' => $category]) }}">{{ $category->name }}</a></li>
+                        <li>
+                            <a class="dropdown-item dropdown-item-custom" href="{{ route('byCategory', ['category' => $category]) }}">
+                                {{ $category->name }}
+                            </a>
+                        </li>
                         @if (!$loop->last)
-                            <hr class="dropdown-divider">
+                            <hr class="dropdown-divider dropdown-divider-custom">
                         @endif
                     @endforeach
                 </ul>
             </div>
             
             @auth
-                <span style="color: #333;">Ciao, {{ Auth::user()->name }}!</span>
+                <span class="user-greeting">
+                    Ciao, {{ Auth::user()->name }}!
+                </span>
                 
-                <a href="{{ route('create.article') }}" style="text-decoration: none; color: #007bff;">
-                    Crea Articolo
+                <a href="{{ route('create.article') }}" class="btn-action">
+                    <i class="fas fa-plus"></i> Crea Articolo
                 </a>
+                
+                @if (Auth::user()->is_revisor)
+                    <div class="nav-item">
+                        <a class="btn revisor-link position-relative" href="{{ route('revisor.index') }}">
+                            <i class="fas fa-eye"></i> Zona revisore
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill revisor-badge">
+                                {{ \App\Models\Article::toBeRevisedCount() }}
+                            </span>
+                        </a>
+                    </div>
+                @endif
                 
                 <form method="POST" action="{{ route('logout') }}" style="display: inline;">
                     @csrf
-                    <button type="submit" style="background: none; border: none; color: #007bff; text-decoration: underline; cursor: pointer;">
-                        Logout
+                    <button type="submit" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
                     </button>
                 </form>
-                
-                 @if (Auth::user()->is_revisor)
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-outline-success btn-sm position-relative w-sm-25"
-                                href="{{ route('revisor.index') }}">Zona revisore
-                                <span
-                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ \App\Models\Article::toBeRevisedCount() }}
-                                </span>
-                            </a>
-                        </li>
-                    @endif
             @else
-                <a href="{{ route('login') }}" style="text-decoration: none; color: #007bff;">
-                    Accedi
+                <a href="{{ route('login') }}" class="btn-action">
+                    <i class="fas fa-sign-in-alt"></i> Accedi
                 </a>
-                <a href="{{ route('register') }}" style="text-decoration: none; color: #007bff;">
-                    Registrati
+                
+                <a href="{{ route('register') }}" class="btn-action">
+                    <i class="fas fa-user-plus"></i> Registrati
                 </a>
             @endauth
         </div>

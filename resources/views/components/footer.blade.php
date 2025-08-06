@@ -18,6 +18,25 @@
                         <a href="{{ route('become.revisor') }}" class="btn btn-success">diventa revisore</a>
                     </div>
             </div>
+
+
+
+               <div class="nav-item dropdown custom-dropdown">
+                <a class="dropdown-toggle-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-globe me-1"></i>Lingua
+                </a>
+                <ul class="dropdown-menu dropdown-menu-custom">
+                    <li>
+                        <x-_locale lang="it" class="dropdown-item-custom" />
+                    </li>
+                    <li>
+                        <x-_locale lang="en" class="dropdown-item-custom" />
+                    </li>
+                    <li>
+                        <x-_locale lang="es" class="dropdown-item-custom" />
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </footer>

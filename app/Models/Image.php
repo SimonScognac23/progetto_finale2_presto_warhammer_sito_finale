@@ -17,11 +17,11 @@ class Image extends Model
     ];
 
     protected function casts(): array
-{
-   return [
-       'labels' => 'array',
-   ];
-}
+    {
+        return [
+            'labels' => 'array',
+        ];
+    }
 
     public function article(): BelongsTo
     {
@@ -30,14 +30,19 @@ class Image extends Model
 
     public static function getUrlByFilePath($filePath, $w = null, $h = null)
     {
-        return Storage::url($filePath);
+        // Se non vengono specificate dimensioni, restituisci l'originale
         if (!$w && !$h) {
             return Storage::url($filePath);
         }
+        
+        // Costruisci il percorso dell'immagine processata
         $path = dirname($filePath);
         $filename = basename($filePath);
-        $file = "{$path}/crop_{$w}x{$h}_{$filename}";
-        return Storage::url($file);
+        $File = "{$path}/crop_{$w}x{$h}_{$filename}";
+        
+      
+        // Se l'immagine processata non esiste, restituisci l'originale
+        return Storage::url($filePath);
     }
 
     public function getUrl($w = null, $h = null)

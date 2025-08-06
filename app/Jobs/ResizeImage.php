@@ -2,12 +2,14 @@
 
 namespace App\Jobs;
 
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Queue\Queueable;
 use Spatie\Image\Image;
-use Spatie\Image\Unit;
+use Spatie\Image\Enums\Unit;
+use Spatie\Image\Enums\CropPosition;
+use Illuminate\Foundation\Queue\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-use Spatie\Image\CropPosition;
+
+
 
 class ResizeImage implements ShouldQueue
 {
