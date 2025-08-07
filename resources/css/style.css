@@ -1,12 +1,4 @@
-.img-preview {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 120px;
-    width: 120px;
-}
-
-
+/* Variabili colore */
 /* Variabili colore */
 :root {
     --primary-black: #1a1a1a;
@@ -114,11 +106,25 @@
     border: none;
     background: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .dropdown-toggle-custom:hover {
     color: var(--primary-black) !important;
     background-color: var(--accent-gold);
+}
+
+.dropdown-toggle-custom:focus {
+    box-shadow: none !important;
+    color: var(--primary-black) !important;
+    background-color: var(--accent-gold);
+}
+
+/* Override Bootstrap dropdown arrow */
+.dropdown-toggle-custom::after {
+    display: none !important;
 }
 
 .dropdown-menu-custom {
@@ -136,10 +142,15 @@
     transition: all 0.3s ease;
     border: none;
     background: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
 }
 
-.dropdown-item-custom:hover {
-    background: linear-gradient(90deg, var(--accent-gold), var(--dark-gold));
+.dropdown-item-custom:hover,
+.dropdown-item-custom:focus {
+    background: linear-gradient(90deg, var(--accent-gold), var(--dark-gold)) !important;
     color: var(--primary-black) !important;
     padding-left: 30px;
 }
@@ -274,6 +285,30 @@
     box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
 }
 
+/* NUOVO: Styling specifico per dropdown Account */
+.account-dropdown .dropdown-toggle-custom {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.account-dropdown .dropdown-toggle-custom i {
+    font-size: 1rem;
+}
+
+.account-dropdown .dropdown-menu-custom {
+    min-width: 180px;
+}
+
+.account-dropdown .dropdown-item-custom {
+    font-size: 0.95rem;
+}
+
+.account-dropdown .dropdown-item-custom i {
+    width: 16px;
+    text-align: center;
+}
+
 /* Responsiveness */
 @media (max-width: 768px) {
     .navbar-container {
@@ -294,6 +329,11 @@
         padding: 6px 12px;
         font-size: 0.9rem;
     }
+
+    .dropdown-toggle-custom {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -310,5 +350,10 @@
     .search-input,
     .search-btn {
         font-size: 0.9rem;
+    }
+
+    .dropdown-menu-custom {
+        min-width: 280px;
+        width: 100%;
     }
 }

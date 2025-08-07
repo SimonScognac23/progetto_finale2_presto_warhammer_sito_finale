@@ -6,6 +6,19 @@
 @endif
 
 
+  <!-- Form di ricerca -->
+            <div class="nav-item">
+                <form class="search-form" role="search" action="{{ route('article.search') }}" method="GET">
+                    <div class="input-group">
+                        <input type="search" name="query" class="form-control search-input" placeholder="Cerca..." aria-label="search">
+                        <button type="submit" class="btn search-btn" id="basic-addon2">
+                            <i class="fas fa-search"></i> Cerca
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+
 
     @if (session()->has('errorMessage'))
         <div class="container-fluid">

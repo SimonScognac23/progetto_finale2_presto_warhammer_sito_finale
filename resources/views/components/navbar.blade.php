@@ -1,8 +1,7 @@
+<!-- CODICE HTML NAVBAR COMPLETO -->
 <nav class="custom-navbar">
     <div class="navbar-container">
-        <a href="{{ route('homepage') }}" class="custom-brand">
-            Presto.it
-        </a>
+        
         
         <div class="navbar-menu">
             <a href="{{ route('homepage') }}" class="nav-link-custom">
@@ -12,18 +11,26 @@
             <a href="{{ route('article.index') }}" class="nav-link-custom">
                 Tutti gli articoli
             </a>
-            
-            <!-- Form di ricerca -->
-            <div class="nav-item">
-                <form class="search-form" role="search" action="{{ route('article.search') }}" method="GET">
-                    <div class="input-group">
-                        <input type="search" name="query" class="form-control search-input" placeholder="Cerca..." aria-label="search">
-                        <button type="submit" class="btn search-btn" id="basic-addon2">
-                            <i class="fas fa-search"></i> Cerca
-                        </button>
-                    </div>
-                </form>
+
+            <!-- Dropdown Lingua -->
+            <div class="nav-item dropdown custom-dropdown">
+                <a class="dropdown-toggle-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-globe me-1"></i>Lingua
+                </a>
+                <ul class="dropdown-menu dropdown-menu-custom">
+                    <li>
+                        <x-_locale lang="it" class="dropdown-item-custom" />
+                    </li>
+                    <li>
+                        <x-_locale lang="en" class="dropdown-item-custom" />
+                    </li>
+                    <li>
+                        <x-_locale lang="es" class="dropdown-item-custom" />
+                    </li>
+                </ul>
             </div>
+
+          
             
             <!-- Dropdown Categorie -->
             <div class="nav-item dropdown custom-dropdown">
@@ -44,14 +51,10 @@
                 </ul>
             </div>
             
+            <!-- Sezione Autenticazione -->
             @auth
-                <span class="user-greeting">
-                    Ciao, {{ Auth::user()->name }}!
-                </span>
-                
-                <a href="{{ route('create.article') }}" class="btn-action">
-                    <i class="fas fa-plus"></i> Crea Articolo
-                </a>
+              
+              
                 
                 @if (Auth::user()->is_revisor)
                     <div class="nav-item">
@@ -71,13 +74,25 @@
                     </button>
                 </form>
             @else
-                <a href="{{ route('login') }}" class="btn-action">
-                    <i class="fas fa-sign-in-alt"></i> Accedi
-                </a>
-                
-                <a href="{{ route('register') }}" class="btn-action">
-                    <i class="fas fa-user-plus"></i> Registrati
-                </a>
+                <!-- NUOVO DROPDOWN ACCOUNT -->
+                <div class="nav-item dropdown custom-dropdown account-dropdown">
+                    <a class="dropdown-toggle-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user me-1"></i>Account
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-custom">
+                        <li>
+                            <a href="{{ route('login') }}" class="dropdown-item-custom">
+                                <i class="fas fa-sign-in-alt me-2"></i>Accedi
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider dropdown-divider-custom"></li>
+                        <li>
+                            <a href="{{ route('register') }}" class="dropdown-item-custom">
+                                <i class="fas fa-user-plus me-2"></i>Registrati
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             @endauth
         </div>
     </div>
