@@ -5,19 +5,50 @@
     </div>
 @endif
 
-
-  <!-- Form di ricerca -->
-            <div class="nav-item">
-                <form class="search-form" role="search" action="{{ route('article.search') }}" method="GET">
-                    <div class="input-group">
-                        <input type="search" name="query" class="form-control search-input" placeholder="Cerca..." aria-label="search">
-                        <button type="submit" class="btn search-btn" id="basic-addon2">
-                            <i class="fas fa-search"></i> Cerca
-                        </button>
+  <!-- Demo Container per visualizzare il form -->
+    <div class="demo-container">
+        <!-- Form di ricerca Imperial -->
+        <div class="nav-item imperial-search-container">
+            <form class="search-form imperial-search-form" role="search" action="{{ route('article.search') }}" method="GET">
+                <div class="input-group imperial-input-group">
+                    <!-- Decorazione sinistra -->
+                    <div class="search-decoration-left">
+                        <i class="fas fa-cog decoration-icon"></i>
                     </div>
-                </form>
-            </div>
-
+                    
+                    <!-- Campo di input -->
+                    <input type="search" 
+                           name="query" 
+                           class="form-control search-input imperial-search-input" 
+                           placeholder="Cerca nelle Archives Imperiali..." 
+                           aria-label="Imperial Search"
+                           autocomplete="off">
+                    
+                    <!-- Pulsante di ricerca -->
+                    <button type="submit" 
+                            class="btn search-btn imperial-search-btn" 
+                            id="imperial-search-addon">
+                        <span class="btn-icon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                        <span class="btn-text">Cerca</span>
+                        <span class="btn-glow"></span>
+                    </button>
+                    
+                    <!-- Decorazione destra -->
+                    <div class="search-decoration-right">
+                        <i class="fas fa-skull decoration-icon"></i>
+                    </div>
+                </div>
+                
+                <!-- Indicatore di stato -->
+                <div class="search-status-indicator">
+                    <div class="status-line"></div>
+                    <div class="status-text">Sistema di Ricerca Attivo</div>
+                </div>
+            </form>
+        </div>
+    </div>
 
 
     @if (session()->has('errorMessage'))
