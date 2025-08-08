@@ -2267,30 +2267,36 @@ body {
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /* =====================================================
-   WARHAMMER 40K CARD STYLES
-   Card grandi e quadrate con Bootstrap
+   WARHAMMER 40K SQUARE CARDS
+   Card perfettamente quadrate e uniformi
    ===================================================== */
-
-
 
 /* =====================================================
-   CARD PRINCIPALE - Bootstrap con dimensioni grandi
+   VARIABILI CSS - I tuoi colori Warhammer
    ===================================================== */
 
-/* Card Warhammer principale */
-.warhammer-card {
+/* =====================================================
+   CARD QUADRATA - Dimensioni fisse e uniformi
+   ===================================================== */
+
+/* Card principale perfettamente quadrata */
+.warhammer-card-square {
     background: linear-gradient(145deg, var(--secondary-black), var(--primary-black));
     border: 2px solid var(--border-color);
     border-radius: 15px;
-    width: 28rem;
-    /* Dimensione grande Bootstrap (448px) */
+    width: 350px;
+    /* Larghezza fissa */
+    height: 350px;
+    /* Altezza uguale = QUADRATA */
     transition: all 0.4s ease;
     overflow: hidden;
     box-shadow: 0 8px 25px var(--shadow-deep);
+    display: flex;
+    flex-direction: column;
 }
 
 /* Hover sulla card */
-.warhammer-card:hover {
+.warhammer-card-square:hover {
     transform: translateY(-8px);
     border-color: var(--accent-gold);
     box-shadow:
@@ -2299,60 +2305,83 @@ body {
 }
 
 /* =====================================================
-   IMMAGINE - Quadrata Bootstrap
+   IMMAGINE QUADRATA - Container con dimensioni fisse
    ===================================================== */
 
-/* Immagine quadrata con ratio Bootstrap */
-.warhammer-card .ratio-1x1 {
+/* Wrapper immagine con altezza fissa */
+.card-img-wrapper {
+    width: 100%;
+    height: 200px;
+    /* Altezza fissa per immagine */
+    overflow: hidden;
+    position: relative;
     border-bottom: 2px solid var(--border-color);
+}
+
+/* Immagine che riempie il container */
+.warhammer-card-square .card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: all 0.3s ease;
 }
 
-.warhammer-card .ratio-1x1 img {
-    object-fit: cover;
-}
-
 /* Hover sull'immagine */
-.warhammer-card:hover .ratio-1x1 img {
+.warhammer-card-square:hover .card-img-top {
     filter: brightness(1.1) contrast(1.1);
+    transform: scale(1.05);
 }
 
 /* =====================================================
-   CARD BODY - Contenuto Stilizzato
+   CARD BODY - Layout flessibile per contenuto
    ===================================================== */
 
-/* Body della card */
-.warhammer-card .card-body {
+/* Body della card con layout flessibile */
+.warhammer-card-square .card-body {
     background: linear-gradient(180deg,
             rgba(45, 45, 45, 0.95),
             rgba(26, 26, 26, 0.98));
     color: var(--white);
-    padding: 1.5rem;
+    padding: 15px;
+    flex: 1;
+    /* Prende tutto lo spazio rimanente */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* Titolo articolo */
-.warhammer-card .card-title {
+/* Titolo articolo con crescita flessibile */
+.warhammer-card-square .card-title {
     color: var(--white);
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 8px;
     text-shadow: 2px 2px 4px var(--shadow-deep);
-    line-height: 1.3;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 /* Prezzo in oro */
-.warhammer-card .card-price {
+.warhammer-card-square .card-price {
     color: var(--accent-gold);
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-weight: 800;
-    margin-bottom: 1rem;
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
     letter-spacing: 1px;
 }
 
 /* =====================================================
-   PULSANTI - Stile Warhammer Completo
+   PULSANTI - Compatti per spazio ridotto
    ===================================================== */
+
+/* Container pulsanti */
+.card-buttons {
+    margin-top: auto;
+}
 
 /* Pulsante oro principale */
 .btn-warhammer-gold {
@@ -2360,15 +2389,14 @@ body {
     border: 2px solid var(--dark-gold);
     color: var(--primary-black);
     font-weight: 700;
-    font-size: 1.1rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    border-radius: 6px;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
-    width: 100%;
+    box-shadow: 0 3px 10px rgba(255, 215, 0, 0.2);
 }
 
 /* Hover pulsante oro */
@@ -2376,8 +2404,8 @@ body {
     background: linear-gradient(145deg, var(--hover-gold), var(--accent-gold));
     border-color: var(--hover-gold);
     color: var(--primary-black);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
 }
 
 /* Pulsante outline secondario */
@@ -2386,14 +2414,13 @@ body {
     border: 2px solid var(--steel-gray);
     color: var(--white);
     font-weight: 600;
-    font-size: 1rem;
-    padding: 0.6rem 1.5rem;
-    border-radius: 8px;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 6px;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
-    width: 100%;
 }
 
 /* Hover pulsante outline */
@@ -2401,51 +2428,77 @@ body {
     background: linear-gradient(145deg, var(--accent-gold), var(--dark-gold));
     border-color: var(--accent-gold);
     color: var(--primary-black);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
-}
-
-/* Focus accessibile */
-.btn-warhammer-gold:focus,
-.btn-warhammer-outline:focus {
-    outline: 3px solid var(--hover-gold);
-    outline-offset: 2px;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
 }
 
 /* =====================================================
-   RESPONSIVE DESIGN - Bootstrap responsivo
+   RESPONSIVE DESIGN - 3 card su PC, responsive mobile
    ===================================================== */
 
-/* Tablet */
-@media (max-width: 992px) {
-    .warhammer-card {
-        width: 24rem;
-        /* 384px */
+/* Desktop e grandi schermi - 3 card per riga */
+@media (min-width: 992px) {
+    .warhammer-card-square {
+        width: 320px;
+        height: 320px;
+    }
+
+    .card-img-wrapper {
+        height: 180px;
     }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .warhammer-card {
-        width: 22rem;
-        /* 352px */
+/* Tablet - 2 card per riga */
+@media (max-width: 991px) and (min-width: 768px) {
+    .warhammer-card-square {
+        width: 300px;
+        height: 300px;
     }
 
-    .warhammer-card .card-title {
+    .card-img-wrapper {
+        height: 170px;
+    }
+
+    .warhammer-card-square .card-title {
+        font-size: 1rem;
+    }
+
+    .warhammer-card-square .card-price {
         font-size: 1.2rem;
     }
+}
 
-    .warhammer-card .card-price {
-        font-size: 1.5rem;
+/* Mobile - 2 card per riga ma più piccole */
+@media (max-width: 767px) {
+    .warhammer-card-square {
+        width: 280px;
+        height: 280px;
+    }
+
+    .card-img-wrapper {
+        height: 160px;
+    }
+
+    .warhammer-card-square .card-body {
+        padding: 12px;
+    }
+
+    .warhammer-card-square .card-title {
+        font-size: 0.95rem;
+    }
+
+    .warhammer-card-square .card-price {
+        font-size: 1.1rem;
     }
 
     .btn-warhammer-gold,
     .btn-warhammer-outline {
-        font-size: 0.95rem;
+        font-size: 0.75rem;
+        padding: 6px 10px;
     }
 
     /* Rimuove effetti hover su mobile */
-    .warhammer-card:hover {
+    .warhammer-card-square:hover {
         transform: none;
     }
 
@@ -2455,10 +2508,34 @@ body {
     }
 }
 
-/* Mobile piccolo */
+/* Mobile piccolo - 1 card per riga */
 @media (max-width: 576px) {
-    .warhammer-card {
-        width: 20rem;
-        /* 320px */
+    .warhammer-card-square {
+        width: 260px;
+        height: 260px;
     }
+
+    .card-img-wrapper {
+        height: 150px;
+    }
+}
+
+/* =====================================================
+   ACCESSIBILITÀ E FOCUS
+   ===================================================== */
+
+/* Focus accessibile per pulsanti */
+.btn-warhammer-gold:focus,
+.btn-warhammer-outline:focus {
+    outline: 3px solid var(--hover-gold);
+    outline-offset: 2px;
+}
+
+/* Miglioramento contrast ratio */
+.warhammer-card-square .card-title {
+    text-shadow: 2px 2px 4px var(--shadow-deep);
+}
+
+.warhammer-card-square .card-price {
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
