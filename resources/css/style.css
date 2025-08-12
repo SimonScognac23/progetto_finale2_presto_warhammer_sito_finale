@@ -3360,3 +3360,346 @@ hr {
         transform: translateY(0) scale(1);
     }
 }
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* =====================================================
+   REVISOR DASHBOARD - Stili Imperial per la dashboard del revisore
+   ===================================================== */
+
+/* Variabili CSS per il tema Imperial */
+:root {
+    --primary-black: #1a1a1a;
+    /* Nero principale per sfondi */
+    --secondary-black: #2d2d2d;
+    /* Nero secondario per gradienti */
+    --accent-gold: #ffd700;
+    /* Oro principale per accenti */
+    --dark-gold: #b8860b;
+    /* Oro scuro per variazioni */
+    --light-gold: #fff8dc;
+    /* Oro chiaro per placeholder */
+    --hover-gold: #ffed4e;
+    /* Oro vivace per hover */
+    --white: #ffffff;
+    /* Bianco puro */
+    --light-gray: #f8f9fa;
+    /* Grigio chiaro */
+    --border-color: #444;
+    /* Grigio per bordi */
+
+    /* Variabili aggiuntive per il tema Warhammer */
+    --imperial-red: #8b0000;
+    /* Rosso imperiale */
+    --steel-gray: #708090;
+    /* Grigio acciaio */
+    --shadow-deep: rgba(0, 0, 0, 0.8);
+}
+
+/* Stile generale per il body - SFONDO IMPERIAL */
+body {
+    background: linear-gradient(135deg, var(--primary-black), var(--secondary-black));
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--white);
+}
+
+/* Container principale con effetti Imperial */
+.container-fluid {
+    position: relative;
+}
+
+/* Effetto di luce ambientale */
+.container-fluid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, var(--accent-gold) 0%, transparent 70%);
+    opacity: 0.03;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Alert messaggi con tema Imperial */
+.alert-success {
+    background: linear-gradient(145deg, var(--accent-gold), var(--dark-gold)) !important;
+    border: 2px solid var(--dark-gold) !important;
+    color: var(--primary-black) !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 30px var(--shadow-deep) !important;
+}
+
+/* Dashboard header con styling Imperial */
+.bg-body-secondary {
+    background: linear-gradient(145deg, var(--secondary-black), var(--primary-black)) !important;
+    border: 2px solid var(--border-color) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorazione superiore per dashboard header */
+.bg-body-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--imperial-red), var(--accent-gold), var(--imperial-red));
+    z-index: 10;
+}
+
+/* Titolo dashboard Imperial */
+.display-5 {
+    color: var(--accent-gold) !important;
+    text-shadow: 0 0 10px var(--accent-gold);
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Card delle immagini con tema Imperial */
+.card {
+    background: linear-gradient(145deg, var(--secondary-black), var(--primary-black)) !important;
+    border: 2px solid var(--border-color) !important;
+    border-radius: 15px !important;
+    box-shadow: 0 10px 25px var(--shadow-deep) !important;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+/* Hover effect per le card */
+.card:hover {
+    border-color: var(--accent-gold) !important;
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.2) !important;
+    transform: translateY(-5px);
+}
+
+/* Decorazione per le card */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-gold), var(--hover-gold), var(--accent-gold));
+    z-index: 10;
+}
+
+/* Card body con testo bianco */
+.card-body {
+    color: var(--white) !important;
+    position: relative;
+    z-index: 5;
+}
+
+/* Titoli nelle card */
+.card-body h5 {
+    color: var(--accent-gold) !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Immagini con bordi dorati */
+.img-fluid {
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.img-fluid:hover {
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Labels styling */
+.card-body p {
+    color: var(--light-gold) !important;
+}
+
+/* Ratings indicators con colori Imperial */
+.text-center.mx-auto {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+}
+
+/* Rating color classes */
+.VERY_LIKELY,
+.LIKELY {
+    background-color: var(--imperial-red) !important;
+    border-color: var(--imperial-red) !important;
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+}
+
+.POSSIBLE {
+    background-color: var(--accent-gold) !important;
+    border-color: var(--dark-gold) !important;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.UNLIKELY,
+.VERY_UNLIKELY {
+    background-color: var(--steel-gray) !important;
+    border-color: var(--steel-gray) !important;
+    box-shadow: 0 0 10px rgba(112, 128, 144, 0.5);
+}
+
+/* Sezione informazioni articolo */
+.col-md-4.ps-4 {
+    background: linear-gradient(145deg, var(--secondary-black), var(--primary-black));
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 25px !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorazione per sezione informazioni */
+.col-md-4.ps-4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--imperial-red), var(--accent-gold), var(--imperial-red));
+    z-index: 10;
+}
+
+/* Titoli informazioni articolo */
+.col-md-4 h3,
+.col-md-4 h4 {
+    color: var(--accent-gold) !important;
+    font-weight: bold;
+}
+
+/* Prezzo evidenziato */
+.col-md-4 h4:nth-of-type(1) {
+    color: var(--hover-gold) !important;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px var(--accent-gold);
+}
+
+/* Categoria evidenziata */
+.fst-italic.text-muted {
+    color: var(--light-gold) !important;
+    font-weight: 500;
+}
+
+/* Descrizione */
+.h6 {
+    color: var(--white) !important;
+    line-height: 1.6;
+}
+
+/* Pulsanti con tema Imperial */
+.btn-danger {
+    background: linear-gradient(45deg, var(--imperial-red), #a00000) !important;
+    border: 2px solid var(--imperial-red) !important;
+    color: var(--white) !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+}
+
+.btn-danger:hover {
+    background: linear-gradient(45deg, #a00000, var(--imperial-red)) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(139, 0, 0, 0.5) !important;
+    border-color: #a00000 !important;
+}
+
+.btn-success {
+    background: linear-gradient(45deg, var(--accent-gold), var(--dark-gold)) !important;
+    border: 2px solid var(--dark-gold) !important;
+    color: var(--primary-black) !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.btn-success:hover {
+    background: linear-gradient(45deg, var(--hover-gold), var(--accent-gold)) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5) !important;
+    border-color: var(--hover-gold) !important;
+    color: var(--primary-black) !important;
+}
+
+/* Stato vuoto con tema Imperial */
+.height-custom {
+    min-height: 70vh;
+}
+
+.display-4 {
+    color: var(--accent-gold) !important;
+    text-shadow: 0 0 10px var(--accent-gold);
+    font-weight: bold;
+}
+
+/* Link homepage con tema Imperial */
+.btn-success:not(:hover) {
+    background: linear-gradient(45deg, var(--accent-gold), var(--dark-gold)) !important;
+    border-color: var(--dark-gold) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .display-5 {
+        font-size: 2rem;
+    }
+
+    .col-md-4.ps-4 {
+        margin-top: 20px;
+        padding: 15px !important;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .d-flex.pb-4 {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Animazioni di apparizione */
+.card {
+    animation: imperialCardRise 0.8s ease-out;
+}
+
+@keyframes imperialCardRise {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Effetto hover per ratings */
+.text-center.mx-auto:hover {
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+}

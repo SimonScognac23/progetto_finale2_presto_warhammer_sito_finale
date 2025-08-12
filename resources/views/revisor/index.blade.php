@@ -10,7 +10,7 @@
         
         <div class="row">
             <div class="col-3">
-                <div class="rounded shadow bg-body-secondary">
+                <div class="rounded shadow bg-body-secondary text-center">
                     <h1 class="display-5 text-center pb-2">
                         Revisor dashboard
                     </h1>
@@ -23,75 +23,100 @@
                 <div class="col-md-8">
                     <div class="row justify-content-center">
                         @if ($article_to_check->images->count())
-                    
-
-
-@foreach ($article_to_check->images as $key=>$image)
-   <div class="col-6">
-       <div class="card mb-3">
-           <div class="row g-0">
-               <div class="col-md-4">
-                   <img src="{{ $image->getUrl(300, 300) }}"
-                        class="img-fluid rounded-start" alt="Immagine {{ $key + 1 }} dell'articolo '{{ $article_to_check->title }}'">
-               </div>
-               <div class="col-md-5 ps-3">
-                   <div class="card-body">
-                       <h5>Labels</h5>
-                       @if ($image->labels)
-                           @foreach ($image->labels as $label)
-                               #{{ $label }},
-                           @endforeach
-                       @else
-                           <p class="fst-italic">No labels</p>
-                       @endif
-                   </div>
-               </div>
-               <div class="col-md-3">
-                   <div class="card-body">
-                       <h5>Ratings</h5>
-                       <div class="row justify-content-center">
-                           <div class="col-2">
-                               <div class="text-center mx-auto {{ $image->adult }}">
-                               </div>
-                           </div>
-                           <div class="col-10">adult</div>
-                       </div>
-                       <div class="row justify-content-center">
-                           <div class="col-2">
-                               <div class="text-center mx-auto {{ $image->violence }}">
-                               </div>
-                           </div>
-                           <div class="col-10">violence</div>
-                       </div>
-                       <div class="row justify-content-center">
-                           <div class="col-2">
-                               <div class="text-center mx-auto {{ $image->spoof }}">
-                               </div>
-                           </div>
-                           <div class="col-10">spoof</div>
-                       </div>
-                       <div class="row justify-content-center">
-                           <div class="col-2">
-                               <div class="text-center mx-auto {{ $image->racy }}">
-                               </div>
-                           </div>
-                           <div class="col-10">racy</div>
-                       </div>
-                       <div class="row justify-content-center">
-                           <div class="col-2">
-                               <div class="text-center mx-auto {{ $image->medical }}">
-                               </div>
-                           </div>
-                           <div class="col-10">medical</div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </div>
-@endforeach
-
-
+                            <!-- Carousel Bootstrap per le immagini -->
+                            <div class="col-12">
+                                <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        @foreach ($article_to_check->images as $key=>$image)
+                                            <div class="carousel-item @if ($loop->first) active @endif">
+                                                <div class="col-12">
+                                                    <div class="card mb-3">
+                                                        <div class="row g-0">
+                                                            <div class="col-md-4">
+                                                                <img src="{{ $image->getUrl(300, 300) }}"
+                                                                     class="img-fluid rounded-start" alt="Immagine {{ $key + 1 }} dell'articolo '{{ $article_to_check->title }}'">
+                                                            </div>
+                                                            <div class="col-md-5 ps-3">
+                                                                <div class="card-body">
+                                                                    <h5>Labels</h5>
+                                                                    @if ($image->labels)
+                                                                        @foreach ($image->labels as $label)
+                                                                            #{{ $label }},
+                                                                        @endforeach
+                                                                    @else
+                                                                        <p class="fst-italic">No labels</p>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="card-body">
+                                                                    <h5>Ratings</h5>
+                                                                    <div class="row justify-content-center">
+                                                                        <div class="col-2">
+                                                                            <div class="text-center mx-auto {{ $image->adult }}">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-10">adult</div>
+                                                                    </div>
+                                                                    <div class="row justify-content-center">
+                                                                        <div class="col-2">
+                                                                            <div class="text-center mx-auto {{ $image->violence }}">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-10">violence</div>
+                                                                    </div>
+                                                                    <div class="row justify-content-center">
+                                                                        <div class="col-2">
+                                                                            <div class="text-center mx-auto {{ $image->spoof }}">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-10">spoof</div>
+                                                                    </div>
+                                                                    <div class="row justify-content-center">
+                                                                        <div class="col-2">
+                                                                            <div class="text-center mx-auto {{ $image->racy }}">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-10">racy</div>
+                                                                    </div>
+                                                                    <div class="row justify-content-center">
+                                                                        <div class="col-2">
+                                                                            <div class="text-center mx-auto {{ $image->medical }}">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-10">medical</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    
+                                    <!-- Controlli del carousel -->
+                                    @if ($article_to_check->images->count() > 1)
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                        
+                                        <!-- Indicatori del carousel -->
+                                        <div class="carousel-indicators">
+                                            @foreach ($article_to_check->images as $key=>$image)
+                                                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="{{ $key }}" 
+                                                        @if ($loop->first) class="active" @endif 
+                                                        aria-label="Slide {{ $key + 1 }}"></button>
+                                            @endforeach
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
                         @else
                             @for ($i = 0; $i < 6; $i++)
                                 <div class="col-6 col-md-4 mb-4 text-center">
