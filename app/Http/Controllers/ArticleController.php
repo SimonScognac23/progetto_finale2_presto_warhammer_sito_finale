@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Routing\Controller;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Models\Category; 
+
 
 class ArticleController extends Controller
 {

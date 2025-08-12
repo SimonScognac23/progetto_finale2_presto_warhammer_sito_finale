@@ -4,7 +4,7 @@
         <!-- Header section con titolo decorato -->
         <div class="row justify-content-center">
             <div class="col-12 text-center">
-                <h1 class="display-4 pt-5">
+                <h1 class="text-white display-4 pt-5">
                     Accedi
                 </h1>
             </div>
