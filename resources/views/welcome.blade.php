@@ -1,6 +1,6 @@
 <x-layout>
    @if (session()->has('message'))
-<div class="alert alert-success text-center shadow rounded w-50">
+<div class="alert alert-success text-center shadow rounded w-50 mx-auto mt-3">
     {{ session('message') }}
 </div>
 @endif
@@ -44,8 +44,8 @@ Demo Container per visualizzare il form
 
 @if (session()->has('errorMessage'))
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-6">
+        <div class="row justify-content-center mt-3">
+            <div class="col-12 col-md-6">
                 <div class="alert alert-danger text-center shadow rounded">
                     {{ session('errorMessage') }}
                 </div>
@@ -59,19 +59,22 @@ Demo Container per visualizzare il form
    
    <div class="row vh-100 justify-content-center align-items-center position-relative">
        <div class="col-12">
-           <h1 class="display-1 text-white fw-bold" style="text-shadow: 3px 3px 6px rgba(0,0,0,0.8);">Warhammer 40k</h1>
+           <h1 class="display-1 text-white fw-bold mb-4" style="text-shadow: 3px 3px 6px rgba(0,0,0,0.8); font-size: clamp(2.5rem, 8vw, 6rem);">Warhammer 40k</h1>
            
            <div class="my-3">
                @auth
-                   <a class="btn btn-light btn-lg shadow" href="{{ route('create.article') }}">Pubblica un articolo</a>
+                   <a class="btn btn-light btn-lg shadow px-4 py-3 fw-bold" href="{{ route('create.article') }}">
+                       <i class="fas fa-plus me-2"></i>
+                       Pubblica un articolo
+                   </a>
                @endauth
            </div>
          @guest  
            <!-- Testo di benvenuto responsive -->
            <div class="container mt-4">
                <div class="row justify-content-center">
-                   <div class="col-12 col-md-8 col-lg-6">
-                       <p class="text-white h5 lh-lg" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                   <div class="col-12 col-md-10 col-lg-8 col-xl-6">
+                       <p class="text-white h5 lh-lg px-3" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8); font-size: clamp(1rem, 2.5vw, 1.25rem);">
                            Benvenuti nella nostra pagina fan dedicata a Warhammer 40k! 
                            Qui potete scoprire e acquistare miniature uniche, 
                            condividere la vostra passione e trovare tutto ciò che serve 
@@ -80,21 +83,24 @@ Demo Container per visualizzare il form
                    </div>
                </div>
            </div>
+       @endguest
        </div>
    </div>
 </div>
-@endguest
-<div class="row height-custom justify-content-center align-items-center py-5">
-    @forelse ($articles as $article)
-        <div class="col-12 col-md-3">
-            <x-card :article="$article" />
-        </div>
-    @empty
-        <div class="col-12">
-            <h3 class="text-center">
-                Non sono ancora stati creati articoli
-            </h3>
-        </div>
-    @endforelse
+
+<div class="container-fluid bg-dark py-5">
+    <div class="row justify-content-center align-items-stretch g-4">
+        @forelse ($articles as $article)
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <x-card :article="$article" />
+            </div>
+        @empty
+            <div class="col-12 text-center">
+                <h3 class="text-white">
+                    Non sono ancora stati creati articoli
+                </h3>
+            </div>
+        @endforelse
+    </div>
 </div>
 </x-layout>

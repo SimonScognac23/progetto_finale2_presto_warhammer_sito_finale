@@ -60,9 +60,10 @@ public function store()
 
             // Corretta dispatch con chain
             dispatch(new RemoveFaces($newImage->id))->chain([
-                new ResizeImage($newImage->path, 300, 300),
-                new GoogleVisionSafeSearch($newImage->id),
-                new GoogleVisionLabelImage($newImage->id)
+            //new ResizeImage($newImage->path, 300, 300),
+            new ResizeImage($storedPath, 300, 300), 
+            new GoogleVisionSafeSearch($newImage->id),
+            new GoogleVisionLabelImage($newImage->id)
             ]);
         }
 

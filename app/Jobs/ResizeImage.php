@@ -35,7 +35,9 @@ public function handle(): void
     $w = $this->w;
     $h = $this->h;
     $srcPath = storage_path() . '/app/public/' . $this->path . '/' . $this->fileName;
-    $destPath = storage_path() . '/app/public/' . $this->path . "/crop_{$w}x{$h}_" . $this->fileName;
+    //$destPath = storage_path() . '/app/public/' . $this->path . "/crop_{$w}x{$h}_" . $this->fileName;
+    
+      $destPath = $srcPath; // Stesso percorso!
 
     Image::load($srcPath)
         ->crop($w, $h, CropPosition::Center)
