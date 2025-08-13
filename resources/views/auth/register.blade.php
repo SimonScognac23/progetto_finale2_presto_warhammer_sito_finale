@@ -5,8 +5,8 @@
         <div class="row justify-content-center">
             <div class="col-12 text-center">
                 <h1 class="text-white display-4 pt-5">
-                    Registrati
-                </h1>
+                 {{ __('ui.register') }}
+               </h1>
             </div>
         </div>
 
@@ -20,17 +20,17 @@
                     <!-- Campo Nome con styling Imperial -->
                     <div class="mb-3">
                         <label for="name" class="form-label">
-                            <i class="fas fa-user me-2"></i>Nome:
+                            <i class="fas fa-user me-2"></i>{{ __('ui.name') }}
                         </label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Inserisci il tuo nome">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="{{ __('ui.enter_name') }}" required autofocus>
                     </div>
 
                     <!-- Campo Email con styling Imperial -->
                     <div class="mb-3">
                         <label for="registerEmail" class="form-label">
-                            <i class="fas fa-envelope me-2"></i>Indirizzo email:
+                            <i class="fas fa-envelope me-2"></i>{{ __('ui.email_address_label') }}
                         </label>
-                        <input type="email" class="form-control" id="registerEmail" name="email" placeholder="Inserisci la tua email">
+                        <input type="email" class="form-control" id="registerEmail" name="email" placeholder="{{ __('ui.email_address') }}" required>
                     </div>
 
                     <!-- Campo Password con styling Imperial -->
@@ -38,23 +38,23 @@
                         <label for="password" class="form-label">
                             <i class="fas fa-lock me-2"></i>Password:
                         </label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Inserisci la password">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="{{ __('ui.enter_password') }}">
                     </div>
 
                     <!-- Campo Conferma Password con styling Imperial -->
                     <div class="mb-3">
                         <label for="password_confirmation" class="form-label">
-                            <i class="fas fa-shield-alt me-2"></i>Conferma la password:
+                            <i class="fas fa-shield-alt me-2"></i>{{ __('ui.confirm_password') }}
                         </label>
                         <input type="password" class="form-control" id="password_confirmation" 
-                               name="password_confirmation" placeholder="Conferma la password">
+                               name="password_confirmation" placeholder="{{ __('ui.confirm_password') }}" required>
                     </div>
 
                     <!-- Pulsante di submit con styling Imperial -->
                     <div class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-imperial">
                             <i class="fas fa-user-plus me-2"></i>
-                            Registrati
+                            {{ __('ui.register') }}
                         </button>
                     </div>
                 </form>

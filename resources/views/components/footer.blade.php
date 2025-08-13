@@ -37,11 +37,12 @@
                             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-globe me-2"></i>Lingua
                             </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-flag me-2"></i>🇮🇹 Italiano</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-flag me-2"></i>🇺🇸 English</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-flag me-2"></i>🇪🇸 Español</a></li>
-                            </ul>
+                            <li class="nav-item d-flex align-items-center gap-1 ms-3">
+                    <!-- Ogni componente invia un form POST per cambiare lingua -->
+                    <x-_locale lang="it" />
+                    <x-_locale lang="en" />
+                    <x-_locale lang="es" />
+                </li>
                         </div>
                     </div>
                 </div>

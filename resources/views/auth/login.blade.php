@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-12 text-center">
                 <h1 class="text-white display-4 pt-5">
-                    Accedi
+                    {{ __('ui.login') }}
                 </h1>
             </div>
         </div>
@@ -20,24 +20,25 @@
                     <!-- Campo Email con styling Imperial -->
                     <div class="mb-3">
                         <label for="loginEmail" class="form-label">
-                            <i class="fas fa-envelope me-2"></i>Indirizzo email
+                            <i class="fas fa-envelope me-2"></i>{{ __('ui.email_address') }}
                         </label>
-                        <input type="email" class="form-control" id="loginEmail" name="email" placeholder="Inserisci la tua email">
+                        <input type="email" class="form-control" id="loginEmail" name="email" placeholder="{{ __('ui.enter_email') }}" required>
                     </div>
                     
                     <!-- Campo Password con styling Imperial -->
                     <div class="mb-3">
                         <label for="password" class="form-label">
-                            <i class="fas fa-lock me-2"></i>Password:
+                            <i class="fas fa-lock me-2"></i>
+                            {{ __('ui.password') }}
                         </label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Inserisci la password">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="{{ __('ui.password') }}" required>
                     </div>
                     
                     <!-- Pulsante di submit con styling Imperial -->
                     <div class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-login-imperial">
                             <i class="fas fa-sign-in-alt me-2"></i>
-                            Accedi
+                            {{ __('ui.login') }}
                         </button>
                     </div>
                 </form>

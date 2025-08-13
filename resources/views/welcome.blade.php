@@ -65,7 +65,7 @@ Demo Container per visualizzare il form
                @auth
                    <a class="btn btn-light btn-lg shadow px-4 py-3 fw-bold" href="{{ route('create.article') }}">
                        <i class="fas fa-plus me-2"></i>
-                       Pubblica un articolo
+                       {{ __('ui.publish_article') }}
                    </a>
                @endauth
            </div>
@@ -75,10 +75,7 @@ Demo Container per visualizzare il form
                <div class="row justify-content-center">
                    <div class="col-12 col-md-10 col-lg-8 col-xl-6">
                        <p class="text-white h5 lh-lg px-3" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8); font-size: clamp(1rem, 2.5vw, 1.25rem);">
-                           Benvenuti nella nostra pagina fan dedicata a Warhammer 40k! 
-                           Qui potete scoprire e acquistare miniature uniche, 
-                           condividere la vostra passione e trovare tutto ciò che serve 
-                           per le vostre battaglie nell'universo di WH40k.
+                            {{ __('ui.welcome_text') }}
                        </p>
                    </div>
                </div>
@@ -97,7 +94,7 @@ Demo Container per visualizzare il form
         @empty
             <div class="col-12 text-center">
                 <h3 class="text-white">
-                    Non sono ancora stati creati articoli
+                     {{ __('ui.no_articles') }}
                 </h3>
             </div>
         @endforelse

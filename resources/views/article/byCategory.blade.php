@@ -2,7 +2,7 @@
    <div class="container">
        <div class="row py-5 justify-content-center align-items-center text-center">
            <div class="col-12 pt-5">
-               <h1 class="display-2 display-4-sm text-white">Articoli della categoria <span
+               <h1 class="display-2 display-4-sm text-white">{{ __('ui.articles_category') }}: <span
                    class="fst-italic fw-bold">{{ $category->name }}</span></h1>
            </div>
        </div>
@@ -14,10 +14,10 @@
            @empty
                <div class="text-white col-12 text-center">
                    <h3 class="h4 h3-md">
-                       Non sono ancora stati creati articoli per questa categoria!
+                      {{ __('ui.no_articles_category') }}
                    </h3>
                    @auth
-                       <a class="btn btn-dark my-5" href="{{route('create.article')}}">Pubblica un articolo</a>
+                       <a class="btn btn-dark my-5" href="{{route('create.article')}}">{{ __('ui.publish_article') }}</a>
                    @endauth
                </div>
            @endforelse
