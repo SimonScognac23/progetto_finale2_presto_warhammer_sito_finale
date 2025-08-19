@@ -9,10 +9,11 @@
                     <h5 class="footer-title">
                         <i class="fas fa-store me-2"></i>Presto.it
                     </h5>
-                    <p class="footer-subtitle">Il tuo marketplace di fiducia</p>
+                    <p class="footer-subtitle">{{ __('ui.il_tuo_marketplace_di_fiducia') }}</p>
                     <p class="footer-text">
-                        Scopri migliaia di prodotti selezionati e venditori verificati. 
-                        La qualità e l'affidabilità che meriti.
+                        {{ __('ui.scopri_migliaia_prodotti') }}
+                        {{ __('ui.qualita_affidabilita') }}
+
                     </p>
                     
                     <!-- SOCIAL LINKS COLLEGATI A FONTAWESOME -->
@@ -35,7 +36,8 @@
                     <div class="footer-dropdown mt-4 d-flex justify-content-center justify-content-md-start">
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-globe me-2"></i>Lingua
+                                <i class="fas fa-globe me-2"></i>
+                                {{ __('ui.lingua') }}
                             </button>
                             <li class="nav-item d-flex align-items-center gap-1 ms-3">
                     <!-- Ogni componente invia un form POST per cambiare lingua -->
@@ -52,15 +54,14 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="revisor-section text-center h-100 d-flex flex-column justify-content-center">
                     <h5 class="mb-3">
-                        <i class="fas fa-user-shield me-2"></i>Vuoi diventare revisore?
+                        <i class="fas fa-user-shield me-2"></i>{{ __('ui.vuoi_diventare_revisore') }}
                     </h5>
                     <p class="mb-4 flex-grow-1">
-                        Unisciti al nostro team di revisori e aiutaci a mantenere 
-                        alta la qualità del marketplace. Clicca il pulsante per fare richiesta.
+                        {{ __('ui.unisciti_team_revisori') }}                                               
                     </p>
                     <div class="mt-auto">
                         <a href="{{ route('become.revisor') }}" class="btn btn-revisor">
-                            <i class="fas fa-star me-2"></i>Diventa Revisore
+                            <i class="fas fa-star me-2"></i>{{ __('ui.diventa_revisore') }}
                         </a>
                     </div>
                 </div>
@@ -72,7 +73,7 @@
             <div class="row">
                 <div class="col-12">
                     <p class="copyright-text text-center mb-0">
-                        © 2024 Presto.it - Tutti i diritti riservati | 
+                        © 2024 Presto.it - {{ __('ui.tutti_diritti_riservati') }} | 
                         Made with <i class="fas fa-heart text-danger"></i> in Italy
                     </p>
                 </div>

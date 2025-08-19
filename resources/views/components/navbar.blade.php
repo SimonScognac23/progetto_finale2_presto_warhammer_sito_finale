@@ -29,14 +29,14 @@
             <!-- LINK ARTICOLI -->
             <!-- Link diretto alla pagina di tutti gli articoli -->
             <a href="{{ route('article.index') }}" class="nav-link-custom">
-                Tutti gli articoli
+                {{ __('ui.tutti_gli_articoli') }}
             </a>
 
             <!-- ========== DROPDOWN CATEGORIE ========== -->
             <!-- Menu a discesa per navigare per categoria -->
             <div class="nav-item dropdown custom-dropdown">
                 <a class="dropdown-toggle-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Categorie
+                    {{ __('ui.categorie') }}
                 </a>
                 <ul class="dropdown-menu dropdown-menu-custom">
                     <!-- Loop attraverso tutte le categorie disponibili -->
@@ -63,7 +63,7 @@
                 @if (Auth::user()->is_revisor)
                     <div class="nav-item">
                         <a class="btn revisor-link position-relative" href="{{ route('revisor.index') }}">
-                            <i class="fas fa-eye"></i> Zona revisore
+                            <i class="fas fa-eye"></i>{{ __('ui.zona_revisore') }}
                             <!-- Badge con numero di articoli da revisionare -->
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill revisor-badge">
                                 {{ \App\Models\Article::toBeRevisedCount() }}
@@ -93,7 +93,7 @@
                         <!-- LINK ACCEDI -->
                         <li>
                             <a href="{{ route('login') }}" class="dropdown-item-custom">
-                                <i class="fas fa-sign-in-alt me-2"></i>Accedi
+                                <i class="fas fa-sign-in-alt me-2"></i>{{ __('ui.login') }}
                             </a>
                         </li>
                         <!-- Separatore tra accedi e registrati -->
@@ -101,7 +101,7 @@
                         <!-- LINK REGISTRATI -->
                         <li>
                             <a href="{{ route('register') }}" class="dropdown-item-custom">
-                                <i class="fas fa-user-plus me-2"></i>Registrati
+                                <i class="fas fa-user-plus me-2"></i>{{ __('ui.register') }}
                             </a>
                         </li>
                     </ul>

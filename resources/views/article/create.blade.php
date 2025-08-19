@@ -8,10 +8,10 @@
             <div class="row justify-content-center">
                 <div class="col-12 text-center mb-5">
                     <h1 class="display-4 fw-bold text-white mb-3 hero-title">
-                        Pubblica un articolo
+                          {{ __('ui.publish_article') }}
                     </h1>
                     <p class="lead text-white-50 hero-subtitle">
-                        Condividi i tuoi prodotti con la nostra community
+                       {{ __('ui.condividi_prodotti_community') }}
                     </p>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                         <div class="card-header bg-primary text-white text-center py-4 card-header-modern">
                             <h4 class="mb-0">
                                 <i class="fas fa-plus-circle me-2"></i>
-                                Nuovo Articolo
+                             {{ __('ui.nuovo_articolo') }}
                             </h4>
                         </div>
                         <div class="card-body p-4 p-md-5 card-body-modern">

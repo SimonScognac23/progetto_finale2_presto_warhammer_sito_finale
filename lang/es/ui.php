@@ -16,4 +16,44 @@ return [
     'confirm_password' => 'Confirmar contraseña:',
     'articles_category' => 'Artículos de la categoría',
     'no_articles_category' => '¡Aún no se han creado artículos para esta categoría!',
+     'tutti_gli_articoli' => 'Todos los artículos',
+     'categorie' => 'Categorías',
+     'zona_revisore' => 'Área de revisor',
+      'il_tuo_marketplace_di_fiducia' => 'Tu marketplace de confianza',
+      'scopri_migliaia_prodotti' => 'Descubre miles de productos seleccionados y vendedores verificados.',
+      'qualita_affidabilita' => 'La calidad y la fiabilidad que mereces.',
+      'lingua' => 'Idioma',
+      'unisciti_team_revisori' => 'Únete a nuestro equipo de revisores y ayúdanos a mantener la calidad del marketplace.',
+      'clicca_pulsante_richiesta' => 'Haz clic en el botón para solicitar.',
+      'vuoi_diventare_revisore' => '¿Quieres convertirte en revisor?',
+      'diventa_revisore' => 'Conviértete en Revisor',
+      'tutti_diritti_riservati' => 'Todos los derechos reservados',
+      'benvenuto_nel' => 'Bienvenido al',
+      'catalogo' => 'Catálogo',
+      'le_volte_imperiali_sono_vuote' => 'Las Cámaras Imperiales están Vacías',
+      'nessuna_reliquia_catalogata' => 'Aún no se ha catalogado ninguna reliquia en los archivos sagrados.',
+      'per_imperatore_inizia_collezione' => '¡Por el Emperador, comienza tu colección!',
+      'archivio' => 'Archivo',
+      'dettagli' => 'Detalles',
+      'dettaglio_articolo' => 'Detalle del artículo',
+      'articolo' => 'Artículo',
+      'prezzo' => 'Precio',
+      'descrizione' => 'Descripción',
+      'acquista' => 'Comprar',
+      'salva' => 'Guardar',
+      'torna_agli_articoli' => 'Volver a los artículos',
+      'informazioni_aggiuntive' => 'Información adicional',
+      'spedizione_veloce' => 'Envío rápido',
+      'acquisto_sicuro' => 'Compra segura',
+      'reso_facile' => 'Devolución fácil',
+      'condividi_prodotti_community' => 'Comparte tus productos con nuestra comunidad',
+      'nuovo_articolo' => 'Nuevo Artículo',
+      'titolo' => 'Título',
+
+
+
+
+
+
+
 ];

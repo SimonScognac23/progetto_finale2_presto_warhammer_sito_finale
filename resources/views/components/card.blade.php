@@ -17,7 +17,7 @@
                         <div class="mt-auto d-grid gap-2 gap-md-3">
                             <a href="{{ route('article.show', compact('article')) }}"
                                class="btn btn-warning btn-lg fw-bold text-dark text-center">
-                                <i class="fas fa-eye me-2"></i> Dettagli
+                                <i class="fas fa-eye me-2"></i> {{ __('ui.dettagli') }}
                             </a>
                             <a href="{{ route('byCategory', ['category' => $article->category]) }}"
                                class="btn btn-outline-warning btn-lg fw-bold text-center">

@@ -8,7 +8,7 @@
                 <div class="col-12 text-center">
                     <!-- Titolo principale con styling Imperial dorato -->
                     <h1 class="display-4 text-dark fw-bold mb-3">
-                        Dettaglio dell'articolo
+                        {{ __('ui.dettaglio_articolo') }}
                     </h1>
                     
                     <!-- Sottotitolo con nome articolo in bianco -->
@@ -102,7 +102,7 @@
                                         <!-- Badge per categoria con styling Imperial dorato -->
                                         <div class="mb-3">
                                             <span class="badge bg-primary fs-6 px-3 py-2">
-                                                <i class="fas fa-tag me-2"></i>Articolo
+                                                <i class="fas fa-tag me-2"></i>{{ __('ui.articolo') }}
                                             </span>
                                         </div>
                                         
@@ -114,7 +114,7 @@
                                         <!-- Prezzo evidenziato con testo bianco -->
                                         <div class="mb-4">
                                             <!-- Label prezzo in bianco -->
-                                            <span class="text-white me-2">Prezzo:</span>
+                                            <span class="text-white me-2">{{ __('ui.prezzo') }}:</span>
                                             <!-- Valore prezzo in bianco con formatting -->
                                             <span class="h3 fw-bold text-white">
                                                 {{ $article->price }} €
@@ -124,7 +124,7 @@
                                         <!-- Descrizione con testo bianco Imperial -->
                                         <div class="mb-4">
                                             <!-- Label descrizione in bianco -->
-                                            <h5 class="text-white mb-2">Descrizione:</h5>
+                                            <h5 class="text-white mb-2">{{ __('ui.descrizione') }}:</h5>
                                             <!-- Testo descrizione -->
                                             <p class="card-text text-dark lh-lg">
                                                 {{ $article->description }}
@@ -142,12 +142,12 @@
                                             <!-- Pulsante principale Acquista -->
                                             <button class="btn btn-primary btn-lg flex-fill">
                                                 <i class="fas fa-shopping-cart me-2"></i>
-                                                Acquista
+                                                {{ __('ui.acquista') }}
                                             </button>
                                             <!-- Pulsante secondario Salva -->
                                             <button class="btn btn-outline-secondary btn-lg flex-fill">
                                                 <i class="fas fa-heart me-2"></i>
-                                                Salva
+                                               {{ __('ui.salva') }}
                                             </button>
                                         </div>
                                         
@@ -155,7 +155,7 @@
                                         <div class="mt-3 text-center">
                                             <a href="{{ route('article.index') }}" class="text-decoration-none text-muted">
                                                 <i class="fas fa-arrow-left me-2"></i>
-                                                Torna agli articoli
+                                                {{ __('ui.torna_agli_articoli') }}
                                             </a>
                                         </div>
                                     </div>
@@ -175,22 +175,22 @@
                     <div class="card border-0 bg-transparent">
                         <div class="card-body text-center">
                             <!-- Titolo sezione informazioni -->
-                            <h4 class="text-white mb-3">Informazioni aggiuntive</h4>
+                            <h4 class="text-white mb-3">{{ __('ui.informazioni_aggiuntive') }}</h4>
                             <div class="row text-center">
                                 <!-- Icona spedizione con colore dorato Imperial -->
                                 <div class="col-4">
                                     <i class="fas fa-shipping-fast text-primary fa-2x mb-2"></i>
-                                    <p class="small text-muted">Spedizione veloce</p>
+                                    <p class="small text-muted">{{ __('ui.spedizione_veloce') }}</p>
                                 </div>
                                 <!-- Icona sicurezza con colore dorato Imperial -->
                                 <div class="col-4">
                                     <i class="fas fa-shield-alt text-success fa-2x mb-2"></i>
-                                    <p class="small text-muted">Acquisto sicuro</p>
+                                    <p class="small text-muted">{{ __('ui.acquisto_sicuro') }}</p>
                                 </div>
                                 <!-- Icona reso con colore dorato Imperial -->
                                 <div class="col-4">
                                     <i class="fas fa-undo text-warning fa-2x mb-2"></i>
-                                    <p class="small text-muted">Reso facile</p>
+                                    <p class="small text-muted">{{ __('ui.reso_facile') }}</p>
                                 </div>
                             </div>
                         </div>

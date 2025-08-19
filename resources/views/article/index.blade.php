@@ -10,8 +10,8 @@
                            <i class="fas fa-chess-rook"></i>
                        </div>
                        <h1 class="display-1 imperial-title">
-                           <span class="title-primary">Benvenuto nel</span>
-                           <span class="title-accent">Catalogo Warhammer 40k</span>
+                           <span class="title-primary">{{ __('ui.benvenuto_nel') }}</span>
+                           <span class="title-accent">{{ __('ui.catalogo') }} Warhammer 40k</span>
                        </h1>
                        <p class="imperial-subtitle">
                            <i class="fas fa-skull me-2"></i>
@@ -32,7 +32,7 @@
                                    <input type="search" 
                                           name="query" 
                                           class="form-control search-input imperial-search-input" 
-                                          placeholder="Archivio" 
+                                          placeholder="{{ __('ui.archivio') }}" 
                                           aria-label="Imperial Search"
                                           autocomplete="off">
                                    
@@ -85,12 +85,12 @@
                                <i class="fas fa-exclamation-triangle"></i>
                            </div>
                            <h3 class="empty-title">
-                               Le Volte Imperiali sono Vuote
+                               {{ __('ui.le_volte_imperiali_sono_vuote') }}
                            </h3>
                            <p class="empty-subtitle">
-                               Nessuna reliquia è stata ancora catalogata negli archivi sacri.
+                              {{ __('ui.nessuna_reliquia_catalogata') }}
                                <br>
-                               <em>Per l'Imperatore, inizia la tua collezione!</em>
+                               <em>{{ __('ui.per_imperatore_inizia_collezione') }}</em>
                            </p>
                            <div class="empty-decoration">
                                <i class="fas fa-cog me-2"></i>

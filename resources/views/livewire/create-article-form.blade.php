@@ -6,14 +6,14 @@
 
 <form class="bg-body-tertiary shadow rounded p-5 my-5" wire:submit="store">
    <div class="mb-3">
-       <label for="title" class="text-black form-label">Titolo:</label>
+       <label for="title" class="text-black form-label">{{ __('ui.titolo') }}:</label>
        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" wire:model.blur="title">
        @error('title')
            <p class="fst-italic text-danger">{{ $message }}</p>
        @enderror
    </div>
    <div class="mb-3">
-       <label for="description" class="text-black form-label">Descrizione:</label>
+       <label for="description" class="text-black form-label">{{ __('ui.descrizione') }}:</label>
        <textarea id="description" cols="30" rows="10"
            class="form-control @error('description') is-invalid @enderror" wire:model.blur="description"></textarea>
        @error('description')
@@ -21,7 +21,7 @@
        @enderror
    </div>
    <div class="mb-3">
-       <label for="price" class="text-black form-label">Prezzo:</label>
+       <label for="price" class="text-black form-label">{{ __('ui.prezzo') }}:</label>
        <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
            wire:model.blur="price">
        @error('price')
