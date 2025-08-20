@@ -50,6 +50,12 @@ return [
         'condividi_prodotti_community' => 'Condividi i tuoi prodotti con la nostra community',
         'nuovo_articolo' => 'Nuovo Articolo',
         'titolo' => 'Titolo',
+         'crea' => 'Crea',
+        'seleziona_categoria' => 'Seleziona una categoria',
+        'nessun_articolo_revisionare' => 'Non ci sono articoli da revisionare',
+        'accetta' => 'Accetta',
+        'rifiuta' => 'Rifiuta',
+
 
 
        

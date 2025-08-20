@@ -49,6 +49,11 @@ return [
       'condividi_prodotti_community' => 'Comparte tus productos con nuestra comunidad',
       'nuovo_articolo' => 'Nuevo Artículo',
       'titolo' => 'Título',
+      'crea' => 'Crear',
+      'seleziona_categoria' => 'Selecciona una categoría',
+      'nessun_articolo_revisionare' => 'No hay artículos para revisar',
+      'accetta' => 'Aceptar',
+      'rifiuta' => 'Rechazar',
 
 
 

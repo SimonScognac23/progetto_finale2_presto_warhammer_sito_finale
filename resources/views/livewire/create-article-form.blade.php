@@ -30,7 +30,7 @@
    </div>
    <div class="mb-3">
        <select id="category" wire:model.blur="category" class="text-black form-control @error('category') is-invalid @enderror">
-           <option label disabled> Seleziona una categoria </option>
+           <option label disabled> {{ __('ui.seleziona_categoria') }} </option>
            @foreach ($categories as $category)
                <option value="{{ $category->id }}">{{ $category->name }}</option>
            @endforeach
@@ -71,6 +71,6 @@
    @endif
 
    <div class="d-flex justify-content-center">
-       <button type="submit" class="btn btn-dark">Crea</button>
+       <button type="submit" class="btn btn-dark">{{ __('ui.crea') }}</button>
    </div>
 </form>

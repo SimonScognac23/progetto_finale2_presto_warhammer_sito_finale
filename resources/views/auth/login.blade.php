@@ -9,14 +9,14 @@
                 </h1>
             </div>
         </div>
-        
+                
         <!-- Form section con styling Imperial -->
         <div class="row justify-content-center align-items-center height-custom">
             <div class="col-12 col-md-6">
                 <!-- Form di accesso con classe personalizzata Imperial -->
                 <form method="POST" action="{{ route('login') }}" class="login-form-dark shadow rounded p-5">
                     @csrf
-                    
+                                        
                     <!-- Campo Email con styling Imperial -->
                     <div class="mb-3">
                         <label for="loginEmail" class="form-label">
@@ -24,7 +24,7 @@
                         </label>
                         <input type="email" class="form-control" id="loginEmail" name="email" placeholder="{{ __('ui.enter_email') }}" required>
                     </div>
-                    
+                                        
                     <!-- Campo Password con styling Imperial -->
                     <div class="mb-3">
                         <label for="password" class="form-label">
@@ -33,7 +33,7 @@
                         </label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="{{ __('ui.password') }}" required>
                     </div>
-                    
+                                        
                     <!-- Pulsante di submit con styling Imperial -->
                     <div class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-login-imperial">
@@ -46,3 +46,5 @@
         </div>
     </div>
 </x-layout>
+
+

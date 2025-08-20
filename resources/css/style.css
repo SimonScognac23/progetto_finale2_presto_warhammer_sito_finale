@@ -1,4 +1,8 @@
 :root {
+
+
+
+
     --primary-black: #1a1a1a;
     /* Nero principale per sfondi */
     --secondary-black: #2d2d2d;
@@ -37,6 +41,12 @@
     height: 120px;
     width: 120px;
 }
+
+
+* {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+}
+
 
 
 

@@ -32,25 +32,34 @@
                 {{ __('ui.tutti_gli_articoli') }}
             </a>
 
-            <!-- ========== DROPDOWN CATEGORIE ========== -->
-            <!-- Menu a discesa per navigare per categoria -->
+            <!-- ALTERNATIVA: Con chunk() per dividere automaticamente -->
             <div class="nav-item dropdown custom-dropdown">
                 <a class="dropdown-toggle-custom" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ __('ui.categorie') }}
                 </a>
                 <ul class="dropdown-menu dropdown-menu-custom">
-                    <!-- Loop attraverso tutte le categorie disponibili -->
-                    @foreach ($categories as $category)
-                        <li>
-                            <a class="dropdown-item dropdown-item-custom" href="{{ route('byCategory', ['category' => $category]) }}">
-                                {{ $category->name }}
-                            </a>
-                        </li>
-                        <!-- Separatore tra le categorie (non dopo l'ultima) -->
-                        @if (!$loop->last)
-                            <hr class="dropdown-divider dropdown-divider-custom">
-                        @endif
-                    @endforeach
+                    <div class="container-fluid">
+                        <div class="row">
+                            @php
+                                $chunks = $categories->chunk(ceil($categories->count() / 2));
+                            @endphp
+                            
+                            @foreach ($chunks as $chunk)
+                                <div class="col-6">
+                                    @foreach ($chunk as $category)
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-custom" href="{{ route('byCategory', ['category' => $category]) }}">
+                                                {{ $category->name }}
+                                            </a>
+                                        </li>
+                                        @if (!$loop->last)
+                                            <hr class="dropdown-divider dropdown-divider-custom">
+                                        @endif
+                                    @endforeach
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </ul>
             </div>
             
@@ -147,3 +156,37 @@
    - Route Laravel integrate
    - Icone FontAwesome
 -->
+
+
+
+
+
+
+<!-- STILI PERSONALIZZATI PER LA NAVBAR E IL DROPDOWN -->
+
+
+<style>
+    /* Assicura che il dropdown sia abbastanza largo per 2 colonne */
+    .custom-dropdown .dropdown-menu-custom {
+        min-width: 400px; /* Regola secondo necessità */
+    }
+
+    /* Rimuove padding extra dai container Bootstrap nel dropdown */
+    .dropdown-menu .container-fluid {
+        padding: 0;
+    }
+
+    /* Assicura che le colonne non abbiano padding eccessivo */
+    .dropdown-menu .col-6 {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    /* Responsive: su mobile torna a una colonna */
+    @media (max-width: 576px) {
+        .dropdown-menu .col-6 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+</style>

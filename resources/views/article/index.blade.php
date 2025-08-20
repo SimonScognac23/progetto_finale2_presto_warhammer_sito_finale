@@ -104,7 +104,7 @@
        </div>
    </div>
 
-   <!-- Paginazione con Stile Imperiale -->
+   <!-- Paginazione con Stile Imperiale 
    <div class="imperial-pagination-wrapper">
        <div class="container">
            <div class="d-flex justify-content-center">
@@ -114,7 +114,7 @@
            </div>
        </div>
    </div>
-
+-->
    <!-- Decorazioni di Sfondo -->
    <div class="background-decorations">
        <div class="decoration-gear decoration-gear-1">

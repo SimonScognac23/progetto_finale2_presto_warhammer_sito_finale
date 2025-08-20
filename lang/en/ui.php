@@ -49,6 +49,11 @@ return [
     'condividi_prodotti_community' => 'Share your products with our community',
     'nuovo_articolo' => 'New Article',
     'titolo' => 'Title',
+    'crea' => 'Create',
+    'seleziona_categoria' => 'Select a category',
+    'nessun_articolo_revisionare' => 'No articles to review',
+    'accetta' => 'Accept',
+    'rifiuta' => 'Reject',
 
 
 
