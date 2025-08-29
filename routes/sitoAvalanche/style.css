@@ -1,0 +1,2460 @@
+/* ==========================================================================
+           AVALANCHE DESIGN SYSTEM - VARIABILI CSS
+           ========================================================================== */
+:root {
+    /* COLORI BRAND AVALANCHE */
+    --avalanche-black: #1a1a1a;
+    /* Nero profondo per sfondi principali */
+    --avalanche-dark: #2d2d30;
+    /* Grigio scuro per elementi secondari */
+    --avalanche-gray: #3e3e42;
+    /* Grigio medio per contrasti */
+    --avalanche-light-gray: #565659;
+    /* Grigio chiaro per hover states */
+    --avalanche-silver: #8b8b8d;
+    /* Argento per testi secondari */
+    --avalanche-white: #ffffff;
+    /* Bianco puro per testi principali */
+    --avalanche-ice: #f0f0f2;
+    /* Bianco ghiaccio per sfondi chiari */
+
+    /* ACCENT COLORS */
+    --accent-blue: #4a9eff;
+    /* Blu principale per elementi di accento */
+    --accent-cyan: #00d4ff;
+    /* Ciano per gradienti e variazioni */
+    --accent-glow: rgba(74, 158, 255, 0.3);
+    /* Effetto glow per focus states */
+
+    /* GRADIENTI MODERNI */
+    --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #2d2d30 50%, #3e3e42 100%);
+    /* Gradiente scuro diagonale */
+    --gradient-hero: linear-gradient(170deg, #1a1a1a 0%, #2d2d30 40%, #3e3e42 100%);
+    /* Gradiente hero section */
+    --gradient-accent: linear-gradient(90deg, #4a9eff, #00d4ff);
+    /* Gradiente orizzontale blu-ciano */
+    --gradient-mesh: radial-gradient(at 40% 20%, hsla(210, 100%, 65%, 0.3) 0px, transparent 50%),
+        /* Mesh gradient effetto aurora */
+        radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.2) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.1) 0px, transparent 50%);
+
+    /* SPACING */
+    --spacing-xs: 0.5rem;
+    /* 8px - Spaziatura extra piccola */
+    --spacing-sm: 1rem;
+    /* 16px - Spaziatura piccola */
+    --spacing-md: 1.5rem;
+    /* 24px - Spaziatura media */
+    --spacing-lg: 2rem;
+    /* 32px - Spaziatura grande */
+    --spacing-xl: 3rem;
+    /* 48px - Spaziatura extra grande */
+    --spacing-xxl: 5rem;
+    /* 80px - Spaziatura doppia extra grande */
+
+    /* TYPOGRAPHY */
+    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Font per titoli */
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Font per body text */
+
+    /* TRANSITIONS */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Transizione veloce con ease-out */
+    --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Transizione fluida standard */
+    --transition-bounce: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Transizione con effetto rimbalzo */
+}
+
+/* ==========================================================================
+           GLOBAL STYLES
+           ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+/* Import font Inter da Google Fonts */
+
+* {
+    margin: 0;
+    /* Reset margini */
+    padding: 0;
+    /* Reset padding */
+    box-sizing: border-box;
+    /* Include padding e border nelle dimensioni */
+}
+
+body {
+    font-family: var(--font-body);
+    /* Applica font principale */
+    background: var(--avalanche-black);
+    /* Sfondo nero */
+    color: var(--avalanche-white);
+    /* Testo bianco di default */
+    overflow-x: hidden;
+    /* Nasconde scroll orizzontale */
+    scroll-behavior: smooth;
+    /* Scroll fluido per ancore */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    /* Larghezza scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: var(--avalanche-black);
+    /* Sfondo track scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--avalanche-gray);
+    /* Colore thumb scrollbar */
+    border-radius: 5px;
+    /* Bordi arrotondati thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--avalanche-light-gray);
+    /* Colore thumb on hover */
+}
+
+/* ==========================================================================
+           NAVBAR STYLES
+           ========================================================================== */
+.navbar {
+    background: rgba(26, 26, 26, 0.95) !important;
+    /* Sfondo semi-trasparente */
+    backdrop-filter: blur(20px);
+    /* Effetto blur sfondo */
+    -webkit-backdrop-filter: blur(20px);
+    /* Blur per Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    /* Bordo sottile inferiore */
+    transition: all var(--transition-smooth);
+    /* Transizione per scroll */
+    padding: 1rem 0;
+    /* Padding verticale */
+}
+
+.navbar.scrolled {
+    background: rgba(26, 26, 26, 0.98) !important;
+    /* Sfondo più opaco quando scrollato */
+    /*backdrop-filter: blur(30px);*/
+    /* Blur aumentato (commentato) */
+    padding: 0.7rem 0;
+    /* Padding ridotto quando scrollato */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    /* Ombra profonda */
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    /* Dimensione logo/brand */
+    font-weight: 800;
+    /* Peso font extra bold */
+    color: var(--avalanche-white) !important;
+    /* Colore bianco forzato */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Allineamento verticale centrato */
+    transition: all var(--transition-fast);
+    /* Transizione veloce */
+    letter-spacing: -0.5px;
+    /* Kerning stretto */
+}
+
+.navbar-brand:hover {
+    transform: translateX(5px);
+    /* Sposta a destra on hover */
+    color: var(--accent-blue) !important;
+    /* Colore blu on hover */
+}
+
+.navbar-brand img {
+    height: 35px;
+    /* Altezza logo */
+    margin-right: 12px;
+    /* Margine destro */
+    filter: brightness(0) invert(1);
+    /* Inverte colore per renderlo bianco */
+    transition: all var(--transition-smooth);
+    /* Transizione fluida */
+}
+
+.navbar-brand:hover img {
+    transform: rotate(-10deg) scale(1.1);
+    /* Rotazione e zoom on hover */
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    /* Bianco semi-trasparente */
+    font-weight: 500;
+    /* Peso medio */
+    margin: 0 1rem;
+    /* Margini laterali */
+    position: relative;
+    /* Per pseudo-elemento */
+    transition: all var(--transition-fast);
+    /* Transizione veloce */
+    font-size: 0.95rem;
+    /* Dimensione testo */
+    letter-spacing: 0.3px;
+    /* Spaziatura lettere */
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    /* Contenuto vuoto per underline */
+    position: absolute;
+    /* Posizionamento assoluto */
+    bottom: -5px;
+    /* Posizione sotto il testo */
+    left: 0;
+    /* Allineato a sinistra */
+    width: 0;
+    /* Larghezza iniziale 0 */
+    height: 2px;
+    /* Altezza linea */
+    background: var(--gradient-accent);
+    /* Gradiente colorato */
+    transition: width var(--transition-smooth);
+    /* Animazione larghezza */
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--avalanche-white) !important;
+    /* Bianco pieno on hover/active */
+    transform: translateY(-2px);
+    /* Solleva leggermente */
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+    /* Espande underline al 100% */
+}
+
+/* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+.hero-section {
+    min-height: 100vh;
+    /* Altezza minima viewport */
+    background: var(--gradient-hero);
+    /* Gradiente sfondo */
+    position: relative;
+    /* Per elementi posizionati */
+    overflow: hidden;
+    /* Nasconde overflow */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Centra verticalmente */
+    padding: 100px 0 50px;
+    /* Padding top maggiore per navbar */
+}
+
+/* Animated Background Pattern */
+.hero-section::before {
+    content: '';
+    /* Pseudo elemento vuoto */
+    position: absolute;
+    /* Posizione assoluta */
+    top: 0;
+    /* Copre tutto */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-mesh);
+    /* Gradiente mesh */
+    opacity: 0.4;
+    /* Semi-trasparente */
+    animation: meshMove 20s ease-in-out infinite;
+    /* Animazione continua */
+}
+
+/* Floating Particles */
+.particle {
+    position: absolute;
+    /* Posizione assoluta */
+    background: var(--accent-blue);
+    /* Colore blu */
+    border-radius: 50%;
+    /* Forma circolare */
+    opacity: 0.3;
+    /* Semi-trasparente */
+    animation: float 20s infinite ease-in-out;
+    /* Animazione fluttuante */
+}
+
+.particle:nth-child(1) {
+    width: 80px;
+    /* Dimensione prima particella */
+    height: 80px;
+    top: 20%;
+    /* Posizione verticale */
+    left: 10%;
+    /* Posizione orizzontale */
+    animation-delay: 0s;
+    /* Nessun ritardo */
+    filter: blur(3px);
+    /* Effetto blur */
+}
+
+.particle:nth-child(2) {
+    width: 120px;
+    /* Dimensione seconda particella */
+    height: 120px;
+    top: 60%;
+    /* Posizione più in basso */
+    right: 10%;
+    /* Allineata a destra */
+    animation-delay: 2s;
+    /* Ritardo 2 secondi */
+    filter: blur(5px);
+    /* Blur maggiore */
+    background: var(--accent-cyan);
+    /* Colore ciano */
+}
+
+.particle:nth-child(3) {
+    width: 60px;
+    /* Dimensione terza particella */
+    height: 60px;
+    bottom: 20%;
+    /* Posizione dal basso */
+    left: 30%;
+    /* Posizione orizzontale */
+    animation-delay: 4s;
+    /* Ritardo 4 secondi */
+    filter: blur(2px);
+    /* Blur leggero */
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        /* Posizione iniziale/finale */
+    }
+
+    33% {
+        transform: translateY(-30px) translateX(20px) rotate(120deg);
+        /* Movimento intermedio 1 */
+    }
+
+    66% {
+        transform: translateY(30px) translateX(-20px) rotate(240deg);
+        /* Movimento intermedio 2 */
+    }
+}
+
+@keyframes meshMove {
+
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+        /* Stato iniziale/finale */
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.1);
+        /* Rotazione e zoom a metà */
+    }
+}
+
+.hero-content {
+    position: relative;
+    /* Posizione relativa */
+    z-index: 2;
+    /* Sopra lo sfondo */
+    animation: fadeInUp 1s ease-out;
+    /* Animazione entrata */
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    /* Dimensione responsive */
+    font-weight: 900;
+    /* Extra bold */
+    margin-bottom: 1.5rem;
+    /* Margine inferiore */
+    line-height: 1.1;
+    /* Interlinea stretta */
+    letter-spacing: -1px;
+    /* Kerning negativo */
+    background: linear-gradient(135deg, var(--avalanche-white) 0%, var(--avalanche-silver) 100%);
+    /* Gradiente testo */
+    -webkit-background-clip: text;
+    /* Clip sfondo al testo */
+    background-clip: text;
+    /* Standard clip */
+    -webkit-text-fill-color: transparent;
+    /* Testo trasparente per mostrare gradiente */
+}
+
+.hero-title .highlight {
+    background: var(--gradient-accent);
+    /* Gradiente accent per highlight */
+    -webkit-background-clip: text;
+    /* Clip al testo */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Trasparente per gradiente */
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    /* Dimensione sottotitolo */
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    margin-bottom: 2rem;
+    /* Margine inferiore */
+    font-weight: 300;
+    /* Peso leggero */
+    line-height: 1.6;
+    /* Interlinea ampia */
+}
+
+/* ==========================================================================
+           FORM CONTAINER
+           ========================================================================== */
+.form-container {
+    background: rgba(255, 255, 255, 0.03);
+    /* Sfondo quasi trasparente */
+    backdrop-filter: blur(10px);
+    /* Effetto glass morphism */
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Bordo sottile */
+    border-radius: 20px;
+    /* Bordi molto arrotondati */
+    padding: 2rem;
+    /* Padding interno */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
+        /* Ombra esterna */
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    /* Ombra interna superiore */
+    position: relative;
+    /* Per pseudo elementi */
+    z-index: 2;
+    /* Sopra altri elementi */
+    animation: fadeInRight 1s ease-out 0.3s both;
+    /* Animazione con ritardo */
+    overflow: hidden;
+    /* Nasconde overflow */
+}
+
+.form-container::before {
+    content: '';
+    /* Pseudo elemento decorativo */
+    position: absolute;
+    /* Posizione assoluta */
+    top: 0;
+    /* Allineato in alto */
+    left: 0;
+    right: 0;
+    height: 1px;
+    /* Linea sottile */
+    background: var(--gradient-accent);
+    /* Gradiente colorato */
+    opacity: 0.5;
+    /* Semi-trasparente */
+}
+
+.form-title {
+    color: var(--avalanche-white);
+    /* Colore bianco */
+    font-weight: 700;
+    /* Bold */
+    margin-bottom: 2rem;
+    /* Margine inferiore */
+    font-size: 1.5rem;
+    /* Dimensione titolo */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Allineamento verticale */
+    justify-content: center;
+    /* Centrato orizzontalmente */
+}
+
+.form-title i {
+    background: var(--gradient-accent);
+    /* Gradiente per icona */
+    -webkit-background-clip: text;
+    /* Clip al testo */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Trasparente per gradiente */
+}
+
+/* Form Elements */
+.form-label {
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    font-weight: 500;
+    /* Peso medio */
+    margin-bottom: 0.5rem;
+    /* Margine inferiore */
+    font-size: 0.9rem;
+    /* Dimensione ridotta */
+    text-transform: uppercase;
+    /* Testo maiuscolo */
+    letter-spacing: 0.5px;
+    /* Spaziatura lettere */
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.05);
+    /* Sfondo semi-trasparente */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Bordo sottile */
+    color: var(--avalanche-white);
+    /* Testo bianco */
+    border-radius: 10px;
+    /* Bordi arrotondati */
+    padding: 0.75rem 1rem;
+    /* Padding interno */
+    transition: all var(--transition-fast);
+    /* Transizione veloce */
+    font-size: 0.95rem;
+    /* Dimensione testo */
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.08);
+    /* Sfondo più chiaro on focus */
+    border-color: var(--accent-blue);
+    /* Bordo blu */
+    box-shadow: 0 0 0 3px var(--accent-glow);
+    /* Glow esterno */
+    color: var(--avalanche-white);
+    /* Mantiene colore bianco */
+    outline: none;
+    /* Rimuove outline default */
+}
+
+.form-control::placeholder {
+    color: var(--avalanche-silver);
+    /* Colore placeholder */
+    opacity: 0.5;
+    /* Semi-trasparente */
+}
+
+.form-check-input {
+    background-color: transparent;
+    /* Sfondo trasparente */
+    border-color: rgba(255, 255, 255, 0.3);
+    /* Bordo semi-trasparente */
+}
+
+.form-check-input:checked {
+    background-color: var(--accent-blue);
+    /* Sfondo blu quando checked */
+    border-color: var(--accent-blue);
+    /* Bordo blu */
+}
+
+.form-check-label {
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    font-size: 0.9rem;
+    /* Dimensione ridotta */
+}
+
+.form-check-label a {
+    color: var(--accent-blue);
+    /* Link blu */
+    text-decoration: none;
+    /* Senza sottolineatura */
+    transition: all var(--transition-fast);
+    /* Transizione veloce */
+}
+
+.form-check-label a:hover {
+    color: var(--accent-cyan);
+    /* Ciano on hover */
+    text-decoration: underline;
+    /* Sottolineatura on hover */
+}
+
+/* Submit Button */
+.btn-submit {
+    background: var(--gradient-accent);
+    /* Gradiente sfondo */
+    border: none;
+    /* Nessun bordo */
+    color: var(--avalanche-white);
+    /* Testo bianco */
+    padding: 1rem 2rem;
+    /* Padding generoso */
+    border-radius: 10px;
+    /* Bordi arrotondati */
+    font-weight: 600;
+    /* Semi-bold */
+    font-size: 1rem;
+    /* Dimensione standard */
+    letter-spacing: 0.5px;
+    /* Spaziatura lettere */
+    transition: all var(--transition-smooth);
+    /* Transizione fluida */
+    position: relative;
+    /* Per pseudo elemento */
+    overflow: hidden;
+    /* Nasconde overflow ripple */
+    text-transform: uppercase;
+    /* Testo maiuscolo */
+}
+
+.btn-submit::before {
+    content: '';
+    /* Pseudo elemento per ripple */
+    position: absolute;
+    /* Posizione assoluta */
+    top: 50%;
+    /* Centro verticale */
+    left: 50%;
+    /* Centro orizzontale */
+    width: 0;
+    /* Larghezza iniziale 0 */
+    height: 0;
+    /* Altezza iniziale 0 */
+    border-radius: 50%;
+    /* Forma circolare */
+    background: rgba(255, 255, 255, 0.3);
+    /* Bianco semi-trasparente */
+    transform: translate(-50%, -50%);
+    /* Centra perfettamente */
+    transition: width 0.6s, height 0.6s;
+    /* Animazione espansione */
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+    /* Solleva il bottone */
+    box-shadow: 0 10px 30px rgba(74, 158, 255, 0.4);
+    /* Ombra colorata */
+}
+
+.btn-submit:hover::before {
+    width: 300px;
+    /* Espande ripple */
+    height: 300px;
+    /* Espande ripple */
+}
+
+/* ==========================================================================
+           FOOTER
+           ========================================================================== */
+.footer {
+    background: var(--gradient-dark);
+    /* Gradiente scuro */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    /* Bordo superiore */
+    padding: 4rem 0 2rem;
+    /* Padding verticale */
+    position: relative;
+    /* Per pseudo elementi */
+    overflow: hidden;
+    /* Nasconde overflow */
+}
+
+.footer::before {
+    content: '';
+    /* Linea decorativa */
+    position: absolute;
+    /* Posizione assoluta */
+    top: 0;
+    /* In alto */
+    left: 0;
+    right: 0;
+    height: 1px;
+    /* Linea sottile */
+    background: var(--gradient-accent);
+    /* Gradiente colorato */
+    opacity: 0.3;
+    /* Semi-trasparente */
+}
+
+.footer-title {
+    color: var(--avalanche-white);
+    /* Colore bianco */
+    font-weight: 800;
+    /* Extra bold */
+    font-size: 1.5rem;
+    /* Dimensione grande */
+    margin-bottom: 1rem;
+    /* Margine inferiore */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Allineamento verticale */
+}
+
+.footer-title i {
+    background: var(--gradient-accent);
+    /* Gradiente per icona */
+    -webkit-background-clip: text;
+    /* Clip al testo */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Trasparente per gradiente */
+}
+
+.footer-subtitle {
+    color: var(--avalanche-white);
+    /* Colore bianco */
+    font-weight: 600;
+    /* Semi-bold */
+    font-size: 0.9rem;
+    /* Dimensione ridotta */
+    text-transform: uppercase;
+    /* Maiuscolo */
+    letter-spacing: 1px;
+    /* Spaziatura lettere */
+    margin-bottom: 1.5rem;
+    /* Margine inferiore */
+    position: relative;
+    /* Per pseudo elemento */
+    padding-bottom: 0.5rem;
+    /* Padding inferiore */
+}
+
+.footer-subtitle::after {
+    content: '';
+    /* Linea decorativa */
+    position: absolute;
+    /* Posizione assoluta */
+    bottom: 0;
+    /* In basso */
+    left: 0;
+    /* A sinistra */
+    width: 30px;
+    /* Larghezza fissa */
+    height: 2px;
+    /* Altezza linea */
+    background: var(--gradient-accent);
+    /* Gradiente colorato */
+}
+
+.footer-text {
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    line-height: 1.8;
+    /* Interlinea ampia */
+    font-size: 0.95rem;
+    /* Dimensione ridotta */
+}
+
+.footer-links {
+    list-style: none;
+    /* Rimuove pallini lista */
+    padding: 0;
+    /* Nessun padding */
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+    /* Margine tra elementi */
+}
+
+.footer-links a {
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    text-decoration: none;
+    /* Senza sottolineatura */
+    transition: all var(--transition-fast);
+    /* Transizione veloce */
+    display: inline-block;
+    /* Display inline-block */
+    font-size: 0.95rem;
+    /* Dimensione ridotta */
+}
+
+.footer-links a:hover {
+    color: var(--accent-blue);
+    /* Blu on hover */
+    transform: translateX(5px);
+    /* Sposta a destra */
+}
+
+/* Social Icons */
+.social-links {
+    display: flex;
+    /* Layout flex */
+    gap: 1rem;
+    /* Spazio tra elementi */
+    margin-top: 1.5rem;
+    /* Margine superiore */
+}
+
+.social-link {
+    width: 45px;
+    /* Larghezza fissa */
+    height: 45px;
+    /* Altezza fissa */
+    background: rgba(255, 255, 255, 0.05);
+    /* Sfondo semi-trasparente */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Bordo sottile */
+    border-radius: 12px;
+    /* Bordi arrotondati */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Centra verticalmente */
+    justify-content: center;
+    /* Centra orizzontalmente */
+    color: var(--avalanche-silver);
+    /* Colore icona */
+    transition: all var(--transition-smooth);
+    /* Transizione fluida */
+    font-size: 1.2rem;
+    /* Dimensione icona */
+}
+
+.social-link:hover {
+    background: var(--gradient-accent);
+    /* Gradiente on hover */
+    border-color: transparent;
+    /* Rimuove bordo */
+    color: var(--avalanche-white);
+    /* Icona bianca */
+    transform: translateY(-5px) rotate(-5deg);
+    /* Solleva e ruota */
+    box-shadow: 0 10px 20px rgba(74, 158, 255, 0.3);
+    /* Ombra colorata */
+}
+
+.contact-item {
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    margin-bottom: 1rem;
+    /* Margine inferiore */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Allineamento verticale */
+    font-size: 0.95rem;
+    /* Dimensione ridotta */
+}
+
+.contact-item i {
+    color: var(--accent-blue);
+    /* Icona blu */
+    margin-right: 0.75rem;
+    /* Margine destro */
+    font-size: 1.1rem;
+    /* Dimensione icona */
+}
+
+.footer-divider {
+    border-color: rgba(255, 255, 255, 0.1);
+    /* Colore divider */
+    margin: 3rem 0 2rem;
+    /* Margini verticali */
+}
+
+.footer-copyright {
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    font-size: 0.9rem;
+    /* Dimensione piccola */
+}
+
+.footer-link {
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    text-decoration: none;
+    /* Senza sottolineatura */
+    transition: color var(--transition-fast);
+    /* Transizione colore */
+    font-size: 0.9rem;
+    /* Dimensione piccola */
+}
+
+.footer-link:hover {
+    color: var(--accent-blue);
+    /* Blu on hover */
+}
+
+/* ==========================================================================
+           ANIMATIONS
+           ========================================================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        /* Inizia trasparente */
+        transform: translateY(40px);
+        /* Inizia più in basso */
+    }
+
+    to {
+        opacity: 1;
+        /* Diventa opaco */
+        transform: translateY(0);
+        /* Torna posizione normale */
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        /* Inizia trasparente */
+        transform: translateX(40px);
+        /* Inizia più a destra */
+    }
+
+    to {
+        opacity: 1;
+        /* Diventa opaco */
+        transform: translateX(0);
+        /* Torna posizione normale */
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        /* Dimensione normale */
+    }
+
+    50% {
+        transform: scale(1.05);
+        /* Leggermente ingrandito */
+    }
+}
+
+/* ==========================================================================
+           RESPONSIVE DESIGN
+           ========================================================================== */
+@media (max-width: 768px) {
+
+    /* Tablet e dispositivi medi */
+    .hero-title {
+        font-size: 2rem;
+        /* Riduce dimensione titolo */
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        /* Riduce dimensione sottotitolo */
+    }
+
+    .form-container {
+        margin-top: 2rem;
+        /* Margine superiore aumentato */
+        padding: 1.5rem;
+        /* Padding ridotto per mobile */
+    }
+
+    .social-link {
+        width: 40px;
+        /* Dimensione ridotta icone social */
+        height: 40px;
+        /* Altezza ridotta */
+    }
+}
+
+@media (max-width: 576px) {
+
+    /* Smartphone e dispositivi piccoli */
+    .hero-section {
+        padding: 80px 0 30px;
+        /* Padding ridotto per mobile */
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+        /* Ulteriore riduzione titolo */
+    }
+
+    .particle {
+        display: none;
+        /* Nasconde particelle su mobile per performance */
+    }
+}
+
+
+/* ==========================================================================
+           FINE INDEX.CSS
+           ========================================================================== */
+/* ==========================================================================
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   CHI SIAMO - FOGLIO DI STILE AVALANCHE DESIGN SYSTEM
+   ========================================================================== */
+
+/* Importa le variabili root dal design system principale */
+:root {
+    /* COLORI BRAND AVALANCHE */
+    --avalanche-black: #1a1a1a;
+    /* Nero profondo per sfondi principali */
+    --avalanche-dark: #2d2d30;
+    /* Grigio scuro per elementi secondari */
+    --avalanche-gray: #3e3e42;
+    /* Grigio medio per contrasti */
+    --avalanche-light-gray: #565659;
+    /* Grigio chiaro per hover states */
+    --avalanche-silver: #8b8b8d;
+    /* Argento per testi secondari */
+    --avalanche-white: #ffffff;
+    /* Bianco puro per testi principali */
+    --avalanche-ice: #f0f0f2;
+    /* Bianco ghiaccio per sfondi chiari */
+
+    /* ACCENT COLORS */
+    --accent-blue: #4a9eff;
+    /* Blu principale per elementi di accento */
+    --accent-cyan: #00d4ff;
+    /* Ciano per gradienti e variazioni */
+    --accent-glow: rgba(74, 158, 255, 0.3);
+    /* Effetto glow per focus states */
+
+    /* GRADIENTI MODERNI */
+    --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #2d2d30 50%, #3e3e42 100%);
+    --gradient-hero: linear-gradient(170deg, #1a1a1a 0%, #2d2d30 40%, #3e3e42 100%);
+    --gradient-accent: linear-gradient(90deg, #4a9eff, #00d4ff);
+    --gradient-mesh: radial-gradient(at 40% 20%, hsla(210, 100%, 65%, 0.3) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.2) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.1) 0px, transparent 50%);
+
+    /* SPACING */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 5rem;
+
+    /* TYPOGRAPHY */
+    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* TRANSITIONS */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ==========================================================================
+   STILI GLOBALI
+   ========================================================================== */
+* {
+    margin: 0;
+    /* Reset margini */
+    padding: 0;
+    /* Reset padding */
+    box-sizing: border-box;
+    /* Include padding e border nelle dimensioni */
+}
+
+body {
+    font-family: var(--font-body);
+    /* Font principale Inter */
+    background: var(--avalanche-black);
+    /* Sfondo nero profondo */
+    color: var(--avalanche-white);
+    /* Testo bianco di default */
+    overflow-x: hidden;
+    /* Nasconde scroll orizzontale */
+    scroll-behavior: smooth;
+    /* Scroll fluido per ancore */
+}
+
+/* Scrollbar personalizzata */
+::-webkit-scrollbar {
+    width: 10px;
+    /* Larghezza scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: var(--avalanche-black);
+    /* Track nero */
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--avalanche-gray);
+    /* Thumb grigio */
+    border-radius: 5px;
+    /* Bordi arrotondati */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--avalanche-light-gray);
+    /* Colore hover */
+}
+
+/* ==========================================================================
+   NAVBAR - Identica a quella principale
+   ========================================================================== */
+.navbar {
+    background: rgba(26, 26, 26, 0.95) !important;
+    /* Sfondo semi-trasparente */
+    backdrop-filter: blur(20px);
+    /* Effetto blur */
+    -webkit-backdrop-filter: blur(20px);
+    /* Safari support */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    /* Bordo sottile */
+    transition: all var(--transition-smooth);
+    /* Transizione fluida */
+    padding: 1rem 0;
+    /* Padding verticale */
+}
+
+.navbar.scrolled {
+    background: rgba(26, 26, 26, 0.98) !important;
+    /* Più opaco quando scrollato */
+    padding: 0.7rem 0;
+    /* Padding ridotto */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    /* Ombra profonda */
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    /* Dimensione brand */
+    font-weight: 800;
+    /* Extra bold */
+    color: var(--avalanche-white) !important;
+    /* Bianco forzato */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Centra verticalmente */
+    transition: all var(--transition-fast);
+    /* Transizione veloce */
+    letter-spacing: -0.5px;
+    /* Kerning stretto */
+}
+
+.navbar-brand:hover {
+    transform: translateX(5px);
+    /* Sposta a destra */
+    color: var(--accent-blue) !important;
+    /* Blu on hover */
+}
+
+.navbar-brand i {
+    margin-right: 0.5rem;
+    /* Spazio dopo icona */
+    background: var(--gradient-accent);
+    /* Gradiente icona */
+    -webkit-background-clip: text;
+    /* Clip al testo */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Trasparente per gradiente */
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    /* Bianco semi-trasparente */
+    font-weight: 500;
+    /* Peso medio */
+    margin: 0 1rem;
+    /* Margini laterali */
+    position: relative;
+    /* Per pseudo elemento */
+    transition: all var(--transition-fast);
+    /* Transizione veloce */
+    font-size: 0.95rem;
+    /* Dimensione testo */
+    letter-spacing: 0.3px;
+    /* Spaziatura lettere */
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    /* Underline animato */
+    position: absolute;
+    /* Posizione assoluta */
+    bottom: -5px;
+    /* Sotto il testo */
+    left: 0;
+    /* Allineato a sinistra */
+    width: 0;
+    /* Larghezza iniziale 0 */
+    height: 2px;
+    /* Altezza linea */
+    background: var(--gradient-accent);
+    /* Gradiente blu-ciano */
+    transition: width var(--transition-smooth);
+    /* Animazione larghezza */
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--avalanche-white) !important;
+    /* Bianco pieno */
+    transform: translateY(-2px);
+    /* Solleva leggermente */
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+    /* Espande underline */
+}
+
+/* Navbar toggler personalizzato */
+.navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Bordo sottile */
+    padding: 0.25rem 0.5rem;
+    /* Padding ridotto */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    /* Icona bianca */
+}
+
+/* ==========================================================================
+   HERO SECTION CHI SIAMO
+   ========================================================================== */
+.about-hero {
+    min-height: 100vh;
+    /* Altezza viewport */
+    background: var(--gradient-hero);
+    /* Gradiente sfondo */
+    position: relative;
+    /* Per particelle */
+    overflow: hidden;
+    /* Nasconde overflow */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Centra verticalmente */
+    padding-top: 80px;
+    /* Spazio per navbar */
+}
+
+/* Pattern di sfondo animato */
+.about-hero::before {
+    content: '';
+    /* Pseudo elemento */
+    position: absolute;
+    /* Posizione assoluta */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-mesh);
+    /* Gradiente mesh */
+    opacity: 0.3;
+    /* Semi-trasparente */
+    animation: meshMove 25s ease-in-out infinite;
+    /* Animazione continua */
+}
+
+/* Particelle fluttuanti */
+.particle {
+    position: absolute;
+    /* Posizione assoluta */
+    background: var(--accent-blue);
+    /* Colore blu */
+    border-radius: 50%;
+    /* Forma circolare */
+    opacity: 0.3;
+    /* Semi-trasparente */
+    animation: float 20s infinite ease-in-out;
+    /* Animazione float */
+    filter: blur(4px);
+    /* Effetto blur */
+}
+
+.particle:nth-child(1) {
+    width: 100px;
+    /* Dimensione particella 1 */
+    height: 100px;
+    top: 10%;
+    /* Posizione verticale */
+    left: 5%;
+    /* Posizione orizzontale */
+    animation-delay: 0s;
+    /* Nessun ritardo */
+}
+
+.particle:nth-child(2) {
+    width: 150px;
+    /* Dimensione particella 2 */
+    height: 150px;
+    top: 70%;
+    /* Più in basso */
+    right: 5%;
+    /* A destra */
+    animation-delay: 3s;
+    /* Ritardo 3 secondi */
+    background: var(--accent-cyan);
+    /* Colore ciano */
+}
+
+.particle:nth-child(3) {
+    width: 80px;
+    /* Dimensione particella 3 */
+    height: 80px;
+    bottom: 10%;
+    /* Dal basso */
+    left: 50%;
+    /* Centro orizzontale */
+    animation-delay: 6s;
+    /* Ritardo 6 secondi */
+}
+
+/* Titolo hero */
+.about-hero-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    /* Dimensione responsive */
+    font-weight: 900;
+    /* Extra bold */
+    margin-bottom: 1.5rem;
+    /* Margine inferiore */
+    letter-spacing: -2px;
+    /* Kerning stretto */
+    animation: fadeInUp 1s ease-out;
+    /* Animazione entrata */
+}
+
+/* Sottotitolo hero */
+.about-hero-subtitle {
+    font-size: 1.5rem;
+    /* Dimensione sottotitolo */
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    font-weight: 300;
+    /* Peso leggero */
+    margin-bottom: 3rem;
+    /* Margine inferiore */
+    animation: fadeInUp 1s ease-out 0.2s both;
+    /* Animazione con ritardo */
+}
+
+/* Testo gradiente */
+.gradient-text {
+    background: var(--gradient-accent);
+    /* Gradiente blu-ciano */
+    -webkit-background-clip: text;
+    /* Clip al testo */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Trasparente per gradiente */
+}
+
+/* Indicatore scroll */
+.scroll-indicator {
+    position: absolute;
+    /* Posizione assoluta */
+    bottom: 30px;
+    /* Dal basso */
+    left: 50%;
+    /* Centro orizzontale */
+    transform: translateX(-50%);
+    /* Centra perfettamente */
+    animation: bounce 2s infinite;
+    /* Animazione bounce */
+}
+
+.scroll-indicator i {
+    font-size: 2rem;
+    /* Dimensione icona */
+    color: var(--accent-blue);
+    /* Colore blu */
+    opacity: 0.7;
+    /* Semi-trasparente */
+}
+
+/* ==========================================================================
+   SEZIONE STORIA
+   ========================================================================== */
+.about-story {
+    background: var(--avalanche-black);
+    /* Sfondo nero */
+    position: relative;
+    /* Per elementi posizionati */
+}
+
+.section-padding {
+    padding: var(--spacing-xxl) 0;
+    /* Padding verticale grande */
+}
+
+/* Badge personalizzato */
+.badge-custom {
+    display: inline-block;
+    /* Display inline-block */
+    background: rgba(74, 158, 255, 0.1);
+    /* Sfondo blu trasparente */
+    color: var(--accent-blue);
+    /* Testo blu */
+    padding: 0.5rem 1rem;
+    /* Padding interno */
+    border-radius: 25px;
+    /* Bordi molto arrotondati */
+    font-size: 0.85rem;
+    /* Dimensione ridotta */
+    font-weight: 600;
+    /* Semi-bold */
+    text-transform: uppercase;
+    /* Testo maiuscolo */
+    letter-spacing: 1px;
+    /* Spaziatura lettere */
+    margin-bottom: 1rem;
+    /* Margine inferiore */
+    border: 1px solid var(--accent-blue);
+    /* Bordo blu */
+}
+
+/* Titolo sezione */
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    /* Dimensione responsive */
+    font-weight: 800;
+    /* Extra bold */
+    margin-bottom: 1.5rem;
+    /* Margine inferiore */
+    line-height: 1.2;
+    /* Interlinea stretta */
+    color: var(--avalanche-white);
+    /* Colore bianco */
+}
+
+/* Testo sezione */
+.section-text {
+    font-size: 1.1rem;
+    /* Dimensione testo */
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    line-height: 1.8;
+    /* Interlinea ampia */
+    margin-bottom: 1rem;
+    /* Margine inferiore */
+}
+
+/* Contenuto storia */
+.story-content {
+    padding-right: 2rem;
+    /* Padding destro */
+}
+
+/* Cards statistiche */
+.stat-card {
+    background: rgba(255, 255, 255, 0.03);
+    /* Sfondo semi-trasparente */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Bordo sottile */
+    border-radius: 15px;
+    /* Bordi arrotondati */
+    padding: 1.5rem;
+    /* Padding interno */
+    text-align: center;
+    /* Testo centrato */
+    transition: all var(--transition-smooth);
+    /* Transizione fluida */
+}
+
+.stat-card:hover {
+    background: rgba(74, 158, 255, 0.05);
+    /* Sfondo blu on hover */
+    border-color: var(--accent-blue);
+    /* Bordo blu */
+    transform: translateY(-5px);
+    /* Solleva card */
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    /* Dimensione grande */
+    font-weight: 900;
+    /* Extra bold */
+    color: var(--accent-blue);
+    /* Colore blu */
+    margin-bottom: 0.5rem;
+    /* Margine inferiore */
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    /* Dimensione ridotta */
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    text-transform: uppercase;
+    /* Maiuscolo */
+    letter-spacing: 0.5px;
+    /* Spaziatura lettere */
+}
+
+/* Visual container */
+.story-visual {
+    position: relative;
+    /* Per cards fluttuanti */
+    height: 500px;
+    /* Altezza fissa */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Centra verticalmente */
+    justify-content: center;
+    /* Centra orizzontalmente */
+}
+
+.visual-container {
+    position: relative;
+    /* Per posizionamento cards */
+    width: 100%;
+    /* Larghezza piena */
+    height: 100%;
+    /* Altezza piena */
+}
+
+/* Cards fluttuanti */
+.floating-card {
+    position: absolute;
+    /* Posizione assoluta */
+    background: rgba(255, 255, 255, 0.05);
+    /* Sfondo semi-trasparente */
+    backdrop-filter: blur(10px);
+    /* Effetto glass */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Bordo sottile */
+    border-radius: 20px;
+    /* Bordi arrotondati */
+    padding: 2rem;
+    /* Padding interno */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Centra verticalmente */
+    justify-content: center;
+    /* Centra orizzontalmente */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    /* Ombra profonda */
+}
+
+.floating-card i {
+    font-size: 3rem;
+    /* Dimensione icona */
+    background: var(--gradient-accent);
+    /* Gradiente icona */
+    -webkit-background-clip: text;
+    /* Clip al testo */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Trasparente per gradiente */
+}
+
+.card-1 {
+    width: 150px;
+    /* Larghezza card 1 */
+    height: 150px;
+    /* Altezza card 1 */
+    top: 10%;
+    /* Posizione verticale */
+    left: 10%;
+    /* Posizione orizzontale */
+    animation: floatCard 6s ease-in-out infinite;
+    /* Animazione float */
+}
+
+.card-2 {
+    width: 180px;
+    /* Larghezza card 2 */
+    height: 180px;
+    /* Altezza card 2 */
+    top: 30%;
+    /* Posizione verticale */
+    right: 20%;
+    /* Posizione orizzontale */
+    animation: floatCard 8s ease-in-out infinite 2s;
+    /* Animazione con ritardo */
+}
+
+.card-3 {
+    width: 140px;
+    /* Larghezza card 3 */
+    height: 140px;
+    /* Altezza card 3 */
+    bottom: 20%;
+    /* Posizione dal basso */
+    left: 40%;
+    /* Posizione orizzontale */
+    animation: floatCard 7s ease-in-out infinite 4s;
+    /* Animazione con ritardo */
+}
+
+/* ==========================================================================
+   SEZIONE VALORI
+   ========================================================================== */
+.about-values {
+    position: relative;
+    /* Per pseudo elementi */
+    overflow: hidden;
+    /* Nasconde overflow */
+}
+
+.bg-dark-gradient {
+    background: var(--gradient-dark);
+    /* Gradiente scuro */
+}
+
+/* Cards valori */
+.value-card {
+    background: rgba(255, 255, 255, 0.03);
+    /* Sfondo semi-trasparente */
+    backdrop-filter: blur(10px);
+    /* Effetto glass */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Bordo sottile */
+    border-radius: 20px;
+    /* Bordi arrotondati */
+    padding: 2rem;
+    /* Padding interno */
+    text-align: center;
+    /* Testo centrato */
+    transition: all var(--transition-smooth);
+    /* Transizione fluida */
+    height: 100%;
+    /* Altezza piena */
+    position: relative;
+    /* Per effetto hover */
+    overflow: hidden;
+    /* Nasconde overflow */
+}
+
+.value-card::before {
+    content: '';
+    /* Pseudo elemento decorativo */
+    position: absolute;
+    /* Posizione assoluta */
+    top: 0;
+    /* In alto */
+    left: 0;
+    /* A sinistra */
+    right: 0;
+    /* A destra */
+    height: 3px;
+    /* Altezza linea */
+    background: var(--gradient-accent);
+    /* Gradiente colorato */
+    transform: translateX(-100%);
+    /* Nascosto a sinistra */
+    transition: transform var(--transition-smooth);
+    /* Animazione slide */
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    /* Solleva card */
+    background: rgba(74, 158, 255, 0.05);
+    /* Sfondo blu */
+    border-color: var(--accent-blue);
+    /* Bordo blu */
+    box-shadow: 0 20px 40px rgba(74, 158, 255, 0.2);
+    /* Ombra colorata */
+}
+
+.value-card:hover::before {
+    transform: translateX(0);
+    /* Mostra linea superiore */
+}
+
+.value-icon {
+    width: 80px;
+    /* Larghezza icona container */
+    height: 80px;
+    /* Altezza icona container */
+    margin: 0 auto 1.5rem;
+    /* Centra e margine inferiore */
+    background: rgba(74, 158, 255, 0.1);
+    /* Sfondo blu trasparente */
+    border-radius: 50%;
+    /* Forma circolare */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Centra verticalmente */
+    justify-content: center;
+    /* Centra orizzontalmente */
+    transition: all var(--transition-smooth);
+    /* Transizione fluida */
+}
+
+.value-icon i {
+    font-size: 2rem;
+    /* Dimensione icona */
+    color: var(--accent-blue);
+    /* Colore blu */
+    transition: all var(--transition-smooth);
+    /* Transizione fluida */
+}
+
+.value-card:hover .value-icon {
+    background: var(--gradient-accent);
+    /* Gradiente on hover */
+    transform: rotate(360deg);
+    /* Rotazione completa */
+}
+
+.value-card:hover .value-icon i {
+    color: var(--avalanche-white);
+    /* Icona bianca on hover */
+}
+
+.value-title {
+    font-size: 1.3rem;
+    /* Dimensione titolo */
+    font-weight: 700;
+    /* Bold */
+    color: var(--avalanche-white);
+    /* Colore bianco */
+    margin-bottom: 1rem;
+    /* Margine inferiore */
+}
+
+.value-text {
+    font-size: 0.95rem;
+    /* Dimensione testo */
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    line-height: 1.6;
+    /* Interlinea */
+}
+
+/* ==========================================================================
+   SEZIONE TEAM
+   ========================================================================== */
+.about-team {
+    background: var(--avalanche-black);
+    /* Sfondo nero */
+    position: relative;
+    /* Per elementi posizionati */
+}
+
+/* Cards team */
+.team-card {
+    background: rgba(255, 255, 255, 0.03);
+    /* Sfondo semi-trasparente */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Bordo sottile */
+    border-radius: 20px;
+    /* Bordi arrotondati */
+    overflow: hidden;
+    /* Nasconde overflow */
+    transition: all var(--transition-smooth);
+    /* Transizione fluida */
+    text-align: center;
+    /* Testo centrato */
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    /* Solleva card */
+    box-shadow: 0 20px 40px rgba(74, 158, 255, 0.2);
+    /* Ombra colorata */
+    border-color: var(--accent-blue);
+    /* Bordo blu */
+}
+
+/* Immagine team */
+.team-image {
+    position: relative;
+    /* Per overlay */
+    overflow: hidden;
+    /* Nasconde overflow */
+    background: var(--gradient-dark);
+    /* Sfondo gradiente */
+}
+
+.image-placeholder {
+    width: 100%;
+    /* Larghezza piena */
+    height: 250px;
+    /* Altezza fissa */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Centra verticalmente */
+    justify-content: center;
+    /* Centra orizzontalmente */
+    background: rgba(74, 158, 255, 0.05);
+    /* Sfondo blu trasparente */
+}
+
+.image-placeholder i {
+    font-size: 5rem;
+    /* Dimensione icona grande */
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    opacity: 0.3;
+    /* Semi-trasparente */
+}
+
+/* Overlay social */
+.team-overlay {
+    position: absolute;
+    /* Posizione assoluta */
+    top: 0;
+    /* In alto */
+    left: 0;
+    /* A sinistra */
+    right: 0;
+    /* A destra */
+    bottom: 0;
+    /* In basso */
+    background: rgba(26, 26, 26, 0.9);
+    /* Sfondo scuro */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Centra verticalmente */
+    justify-content: center;
+    /* Centra orizzontalmente */
+    gap: 1rem;
+    /* Spazio tra icone */
+    opacity: 0;
+    /* Nascosto di default */
+    transform: translateY(100%);
+    /* Fuori vista */
+    transition: all var(--transition-smooth);
+    /* Transizione fluida */
+}
+
+.team-card:hover .team-overlay {
+    opacity: 1;
+    /* Mostra overlay */
+    transform: translateY(0);
+    /* Slide up */
+}
+
+.social-icon {
+    width: 40px;
+    /* Larghezza icona */
+    height: 40px;
+    /* Altezza icona */
+    background: rgba(255, 255, 255, 0.1);
+    /* Sfondo trasparente */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Bordo sottile */
+    border-radius: 50%;
+    /* Forma circolare */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Centra verticalmente */
+    justify-content: center;
+    /* Centra orizzontalmente */
+    color: var(--avalanche-white);
+    /* Colore bianco */
+    text-decoration: none;
+    /* Rimuove sottolineatura */
+    transition: all var(--transition-fast);
+    /* Transizione veloce */
+}
+
+.social-icon:hover {
+    background: var(--gradient-accent);
+    /* Gradiente on hover */
+    border-color: transparent;
+    /* Rimuove bordo */
+    transform: scale(1.2);
+    /* Ingrandisce */
+}
+
+/* Info team */
+.team-info {
+    padding: 1.5rem;
+    /* Padding interno */
+}
+
+.team-name {
+    font-size: 1.2rem;
+    /* Dimensione nome */
+    font-weight: 700;
+    /* Bold */
+    color: var(--avalanche-white);
+    /* Colore bianco */
+    margin-bottom: 0.5rem;
+    /* Margine inferiore */
+}
+
+.team-role {
+    font-size: 0.9rem;
+    /* Dimensione ruolo */
+    color: var(--accent-blue);
+    /* Colore blu */
+    text-transform: uppercase;
+    /* Maiuscolo */
+    letter-spacing: 0.5px;
+    /* Spaziatura lettere */
+}
+
+/* ==========================================================================
+   SEZIONE CTA (Call To Action)
+   ========================================================================== */
+.about-cta {
+    background: var(--gradient-hero);
+    /* Gradiente sfondo */
+    padding: var(--spacing-xxl) 0;
+    /* Padding verticale grande */
+    position: relative;
+    /* Per elementi posizionati */
+    overflow: hidden;
+    /* Nasconde overflow */
+}
+
+.about-cta::before {
+    content: '';
+    /* Pseudo elemento decorativo */
+    position: absolute;
+    /* Posizione assoluta */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-mesh);
+    /* Gradiente mesh */
+    opacity: 0.2;
+    /* Semi-trasparente */
+}
+
+.cta-container {
+    background: rgba(255, 255, 255, 0.03);
+    /* Sfondo semi-trasparente */
+    backdrop-filter: blur(10px);
+    /* Effetto glass */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Bordo sottile */
+    border-radius: 30px;
+    /* Bordi molto arrotondati */
+    padding: 3rem;
+    /* Padding interno generoso */
+    position: relative;
+    /* Per z-index */
+    z-index: 1;
+    /* Sopra pseudo elemento */
+}
+
+.cta-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    /* Dimensione responsive */
+    font-weight: 800;
+    /* Extra bold */
+    color: var(--avalanche-white);
+    /* Colore bianco */
+    margin-bottom: 1rem;
+    /* Margine inferiore */
+}
+
+.cta-text {
+    font-size: 1.1rem;
+    /* Dimensione testo */
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    margin-bottom: 0;
+    /* Nessun margine inferiore */
+}
+
+.btn-cta {
+    display: inline-block;
+    /* Display inline-block */
+    background: var(--gradient-accent);
+    /* Gradiente sfondo */
+    color: var(--avalanche-white);
+    /* Testo bianco */
+    padding: 1rem 2rem;
+    /* Padding interno */
+    border-radius: 10px;
+    /* Bordi arrotondati */
+    font-weight: 600;
+    /* Semi-bold */
+    text-decoration: none;
+    /* Rimuove sottolineatura */
+    text-transform: uppercase;
+    /* Maiuscolo */
+    letter-spacing: 0.5px;
+    /* Spaziatura lettere */
+    transition: all var(--transition-smooth);
+    /* Transizione fluida */
+    position: relative;
+    /* Per pseudo elemento */
+    overflow: hidden;
+    /* Nasconde overflow */
+}
+
+.btn-cta::before {
+    content: '';
+    /* Ripple effect */
+    position: absolute;
+    /* Posizione assoluta */
+    top: 50%;
+    /* Centro verticale */
+    left: 50%;
+    /* Centro orizzontale */
+    width: 0;
+    /* Larghezza iniziale 0 */
+    height: 0;
+    /* Altezza iniziale 0 */
+    border-radius: 50%;
+    /* Forma circolare */
+    background: rgba(255, 255, 255, 0.3);
+    /* Bianco trasparente */
+    transform: translate(-50%, -50%);
+    /* Centra perfettamente */
+    transition: width 0.6s, height 0.6s;
+    /* Animazione espansione */
+}
+
+.btn-cta:hover {
+    transform: translateY(-3px);
+    /* Solleva bottone */
+    box-shadow: 0 10px 30px rgba(74, 158, 255, 0.4);
+    /* Ombra colorata */
+    color: var(--avalanche-white);
+    /* Mantiene colore bianco */
+}
+
+.btn-cta:hover::before {
+    width: 300px;
+    /* Espande ripple */
+    height: 300px;
+    /* Espande ripple */
+}
+
+/* ==========================================================================
+   FOOTER - Identico a quello principale
+   ========================================================================== */
+.footer {
+    background: var(--gradient-dark);
+    /* Gradiente scuro */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    /* Bordo superiore */
+    padding: 4rem 0 2rem;
+    /* Padding verticale */
+    position: relative;
+    /* Per pseudo elementi */
+    overflow: hidden;
+    /* Nasconde overflow */
+}
+
+.footer::before {
+    content: '';
+    /* Linea decorativa */
+    position: absolute;
+    /* Posizione assoluta */
+    top: 0;
+    /* In alto */
+    left: 0;
+    right: 0;
+    height: 1px;
+    /* Linea sottile */
+    background: var(--gradient-accent);
+    /* Gradiente colorato */
+    opacity: 0.3;
+    /* Semi-trasparente */
+}
+
+.footer-title {
+    color: var(--avalanche-white);
+    /* Colore bianco */
+    font-weight: 800;
+    /* Extra bold */
+    font-size: 1.5rem;
+    /* Dimensione grande */
+    margin-bottom: 1rem;
+    /* Margine inferiore */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Allineamento verticale */
+}
+
+.footer-title i {
+    background: var(--gradient-accent);
+    /* Gradiente per icona */
+    -webkit-background-clip: text;
+    /* Clip al testo */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Trasparente per gradiente */
+}
+
+.footer-subtitle {
+    color: var(--avalanche-white);
+    /* Colore bianco */
+    font-weight: 600;
+    /* Semi-bold */
+    font-size: 0.9rem;
+    /* Dimensione ridotta */
+    text-transform: uppercase;
+    /* Maiuscolo */
+    letter-spacing: 1px;
+    /* Spaziatura lettere */
+    margin-bottom: 1.5rem;
+    /* Margine inferiore */
+    position: relative;
+    /* Per pseudo elemento */
+    padding-bottom: 0.5rem;
+    /* Padding inferiore */
+}
+
+.footer-subtitle::after {
+    content: '';
+    /* Linea decorativa */
+    position: absolute;
+    /* Posizione assoluta */
+    bottom: 0;
+    /* In basso */
+    left: 0;
+    /* A sinistra */
+    width: 30px;
+    /* Larghezza fissa */
+    height: 2px;
+    /* Altezza linea */
+    background: var(--gradient-accent);
+    /* Gradiente colorato */
+}
+
+.footer-text {
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    line-height: 1.8;
+    /* Interlinea ampia */
+    font-size: 0.95rem;
+    /* Dimensione ridotta */
+}
+
+.footer-links {
+    list-style: none;
+    /* Rimuove pallini lista */
+    padding: 0;
+    /* Nessun padding */
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+    /* Margine tra elementi */
+}
+
+.footer-links a {
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    text-decoration: none;
+    /* Senza sottolineatura */
+    transition: all var(--transition-fast);
+    /* Transizione veloce */
+    display: inline-block;
+    /* Display inline-block */
+    font-size: 0.95rem;
+    /* Dimensione ridotta */
+}
+
+.footer-links a:hover {
+    color: var(--accent-blue);
+    /* Blu on hover */
+    transform: translateX(5px);
+    /* Sposta a destra */
+}
+
+/* Social links nel footer */
+.social-links {
+    display: flex;
+    /* Layout flex */
+    gap: 1rem;
+    /* Spazio tra elementi */
+    margin-top: 1.5rem;
+    /* Margine superiore */
+}
+
+.social-link {
+    width: 45px;
+    /* Larghezza fissa */
+    height: 45px;
+    /* Altezza fissa */
+    background: rgba(255, 255, 255, 0.05);
+    /* Sfondo semi-trasparente */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Bordo sottile */
+    border-radius: 12px;
+    /* Bordi arrotondati */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Centra verticalmente */
+    justify-content: center;
+    /* Centra orizzontalmente */
+    color: var(--avalanche-silver);
+    /* Colore icona */
+    transition: all var(--transition-smooth);
+    /* Transizione fluida */
+    font-size: 1.2rem;
+    /* Dimensione icona */
+}
+
+.social-link:hover {
+    background: var(--gradient-accent);
+    /* Gradiente on hover */
+    border-color: transparent;
+    /* Rimuove bordo */
+    color: var(--avalanche-white);
+    /* Icona bianca */
+    transform: translateY(-5px) rotate(-5deg);
+    /* Solleva e ruota */
+    box-shadow: 0 10px 20px rgba(74, 158, 255, 0.3);
+    /* Ombra colorata */
+}
+
+.contact-item {
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    margin-bottom: 1rem;
+    /* Margine inferiore */
+    display: flex;
+    /* Layout flex */
+    align-items: center;
+    /* Allineamento verticale */
+    font-size: 0.95rem;
+    /* Dimensione ridotta */
+}
+
+.contact-item i {
+    color: var(--accent-blue);
+    /* Icona blu */
+    margin-right: 0.75rem;
+    /* Margine destro */
+    font-size: 1.1rem;
+    /* Dimensione icona */
+}
+
+.footer-divider {
+    border-color: rgba(255, 255, 255, 0.1);
+    /* Colore divider */
+    margin: 3rem 0 2rem;
+    /* Margini verticali */
+}
+
+.footer-copyright {
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    font-size: 0.9rem;
+    /* Dimensione piccola */
+}
+
+.footer-link {
+    color: var(--avalanche-silver);
+    /* Colore argento */
+    text-decoration: none;
+    /* Senza sottolineatura */
+    transition: color var(--transition-fast);
+    /* Transizione colore */
+    font-size: 0.9rem;
+    /* Dimensione piccola */
+}
+
+.footer-link:hover {
+    color: var(--accent-blue);
+    /* Blu on hover */
+}
+
+/* ==========================================================================
+   ANIMAZIONI
+   ========================================================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        /* Inizia trasparente */
+        transform: translateY(40px);
+        /* Inizia più in basso */
+    }
+
+    to {
+        opacity: 1;
+        /* Diventa opaco */
+        transform: translateY(0);
+        /* Posizione normale */
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        /* Posizione iniziale/finale */
+    }
+
+    33% {
+        transform: translateY(-30px) translateX(20px) rotate(120deg);
+        /* Movimento 1 */
+    }
+
+    66% {
+        transform: translateY(30px) translateX(-20px) rotate(240deg);
+        /* Movimento 2 */
+    }
+}
+
+@keyframes floatCard {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+        /* Posizione iniziale/finale */
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+        /* Movimento centrale */
+    }
+}
+
+@keyframes meshMove {
+
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+        /* Stato iniziale/finale */
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.1);
+        /* Rotazione e zoom */
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0) translateX(-50%);
+        /* Posizione base */
+    }
+
+    40% {
+        transform: translateY(-10px) translateX(-50%);
+        /* Bounce up */
+    }
+
+    60% {
+        transform: translateY(-5px) translateX(-50%);
+        /* Bounce piccolo */
+    }
+}
+
+/* ==========================================================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 992px) {
+
+    /* Tablet landscape */
+    .about-hero-title {
+        font-size: 3.5rem;
+        /* Riduce titolo */
+    }
+
+    .story-content {
+        padding-right: 0;
+        /* Rimuove padding */
+        margin-bottom: 3rem;
+        /* Aggiunge margine */
+    }
+
+    .story-visual {
+        height: 400px;
+        /* Riduce altezza */
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Tablet portrait */
+    .about-hero-title {
+        font-size: 2.5rem;
+        /* Riduce ulteriormente */
+    }
+
+    .about-hero-subtitle {
+        font-size: 1.2rem;
+        /* Riduce sottotitolo */
+    }
+
+    .section-title {
+        font-size: 2rem;
+        /* Riduce titoli sezione */
+    }
+
+    .floating-card {
+        display: none;
+        /* Nasconde cards fluttuanti */
+    }
+
+    .cta-container {
+        padding: 2rem;
+        /* Riduce padding */
+    }
+}
+
+@media (max-width: 576px) {
+
+    /* Smartphone */
+    .about-hero {
+        padding-top: 60px;
+        /* Riduce padding top */
+    }
+
+    .about-hero-title {
+        font-size: 2rem;
+        /* Dimensione mobile */
+        letter-spacing: -1px;
+        /* Kerning ridotto */
+    }
+
+    .about-hero-subtitle {
+        font-size: 1rem;
+        /* Dimensione mobile */
+    }
+
+    .particle {
+        display: none;
+        /* Nasconde particelle per performance */
+    }
+
+    .stat-card {
+        margin-bottom: 1rem;
+        /* Margine tra cards */
+    }
+
+    .team-card {
+        margin-bottom: 2rem;
+        /* Margine tra team cards */
+    }
+
+    .btn-cta {
+        display: block;
+        /* Full width su mobile */
+        width: 100%;
+        /* Larghezza piena */
+        text-align: center;
+        /* Centra testo */
+    }
+}
